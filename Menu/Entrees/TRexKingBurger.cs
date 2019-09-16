@@ -1,12 +1,24 @@
-﻿using System.Collections.Generic;
+﻿/*TRexKingBurger
+ * Nathan Brown
+ * Milestone 1
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-
+    /// <summary>
+    /// Class for the TRex Burger
+    /// </summary>
     public class TRexKingBurger
     {
-
+        /// <summary>
+        /// Public property for the price of the TRex burger
+        /// </summary>
         public double Price { get; set; }
+
+        /// <summary>
+        /// Public property for the calories of the TRex burger
+        /// </summary>
         public uint Calories { get; set; }
 
         private bool bun = true;
@@ -17,19 +29,28 @@ namespace DinoDiner.Menu.Entrees
         private bool ketchup = true;
         private bool mustard = true;
         private bool mayo = true;
+
+        /// <summary>
+        /// Constructor that sets the calories and price for the TRex burger
+        /// </summary>
         public TRexKingBurger()
         {
             this.Calories = 728;
             this.Price = 8.45;
         }
 
+        /// <summary>
+        /// Ingredient list for the TRex burger
+        /// </summary>
         public List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string> { "3 Steak Patties" };
+                List<string> ingredients = new List<string> { "Steakburger Pattie" };
+                ingredients.Add("Steakburger Pattie");
+                ingredients.Add("Steakburger Pattie");
                 if (bun) ingredients.Add("Whole Wheat Bun");
-                if (lettuce) ingredients.Add("Letuce");
+                if (lettuce) ingredients.Add("Lettuce");
                 if (tomato) ingredients.Add("Tomato");
                 if (onion) ingredients.Add("Onion");
                 if (pickle) ingredients.Add("Pickle");
@@ -40,41 +61,65 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Sets the value of bun to false
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
 
+        /// <summary>
+        /// Sets the value of lettuce to false
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
         }
 
+        /// <summary>
+        /// Sets the value of tomato to false
+        /// </summary>
         public void HoldTomato()
         {
             this.tomato = false;
         }
 
+        /// <summary>
+        /// Sets the value of onion to false
+        /// </summary>
         public void HoldOnion()
         {
             this.onion = false;
         }
 
+        /// <summary>
+        /// Sets the value of pickle to false
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
 
+        /// <summary>
+        /// Sets the value of ketchup to false
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
 
+        /// <summary>
+        /// Sets the value of mustard to false
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;
         }
 
+        /// <summary>
+        /// Sets the value of mayo to false
+        /// </summary>
         public void HoldMayo()
         {
             this.mayo = false;

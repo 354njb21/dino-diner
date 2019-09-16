@@ -30,40 +30,73 @@ namespace MenuTest.Entrees
             Assert.Contains<string>("Pickle", ingredients);
             Assert.Contains<string>("Ketchup", ingredients);
             Assert.Contains<string>("Mustard", ingredients);
-            Assert.Equal<int>(5, ingredients.Count);
+            Assert.Contains<string>("Lettuce", ingredients);
+            Assert.Contains<string>("Onion", ingredients);
+            Assert.Contains<string>("Tomato", ingredients);
+            Assert.Equal<int>(8, ingredients.Count);
         }
 
         [Fact]
         public void HoldBunShouldRemoveBun()
         {
-            SteakosaurusBurger sb = new SteakosaurusBurger();
-            sb.HoldBun();
-            Assert.DoesNotContain<string>("Whole Wheat Bun", sb.Ingredients);
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldBun();
+            Assert.DoesNotContain<string>("Whole Wheat Bun", trex.Ingredients);
         }
 
         [Fact]
         public void HoldPickleShouldRemovePickle()
         {
-            SteakosaurusBurger sb = new SteakosaurusBurger();
-            sb.HoldPickle();
-            Assert.DoesNotContain<string>("Pickle", sb.Ingredients);
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldPickle();
+            Assert.DoesNotContain<string>("Pickle", trex.Ingredients);
         }
 
         [Fact]
         public void HoldKetchupShouldRemoveKetchup()
         {
-            SteakosaurusBurger sb = new SteakosaurusBurger();
-            sb.HoldKetchup();
-            Assert.DoesNotContain<string>("Ketchup", sb.Ingredients);
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldKetchup();
+            Assert.DoesNotContain<string>("Ketchup", trex.Ingredients);
         }
 
         [Fact]
         public void HoldMustardShouldRemoveMustard()
         {
-            SteakosaurusBurger sb = new SteakosaurusBurger();
-            sb.HoldMustard();
-            Assert.DoesNotContain<string>("Mustard", sb.Ingredients);
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldMustard();
+            Assert.DoesNotContain<string>("Mustard", trex.Ingredients);
         }
+
+        [Fact]
+        public void HoldLettuceShouldRemoveLettuce()
+        {
+            
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldLettuce();
+            Assert.DoesNotContain<string>("Lettuce", trex.Ingredients);
+        }
+
+        [Fact]
+        public void HoldTomatoShouldRemoveTomato()
+        {
+            
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldTomato();
+            Assert.DoesNotContain<string>("Tomato", trex.Ingredients);
+        }
+
+        [Fact]
+        public void HoldOnionShouldRemoveOnion()
+        {
+            
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldOnion();
+            Assert.DoesNotContain<string>("Onion", trex.Ingredients);
+        }
+
+
+
     }
 
 }

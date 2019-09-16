@@ -1,19 +1,34 @@
-﻿using System.Collections.Generic;
+﻿/*VelociWrap
+ * Nathan Brown
+ * Milestone 1
+ */
+using System.Collections.Generic;
 
 
 namespace DinoDiner.Menu.Entrees
 {
-
+    /// <summary>
+    /// Class for the Wrap
+    /// </summary>
     public class VelociWrap
     {
-
+        /// <summary>
+        /// Public property for the price of the wrap
+        /// </summary>
         public double Price { get; set; }
+
+        /// <summary>
+        /// Public property for the calories of the wrap
+        /// </summary>
         public uint Calories { get; set; }
 
         private bool lettuce = true;
         private bool dressing = true;
         private bool cheese = true;
 
+        /// <summary>
+        /// Constructor sets the price and calories of the wrap
+        /// </summary>
         public VelociWrap()
         {
             this.Price = 6.86;
@@ -21,28 +36,41 @@ namespace DinoDiner.Menu.Entrees
 
         }
 
+        /// <summary>
+        /// List of ingredients in the wrap
+        /// </summary>
         public List<string> Ingredients
         {
             get
             {
                 List<string> ingredients = new List<string> { "Chicken Breast" };
-                if (lettuce) ingredients.Add("Lettuce");
+                ingredients.Add("Flour Tortilla");
+                if (lettuce) ingredients.Add("Romaine Lettuce");
                 if (dressing) ingredients.Add("Ceasar Dressing");
                 if (cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
             }
         }
 
+        /// <summary>
+        /// Sets the value of lettuce to false
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
         }
 
+        /// <summary>
+        /// Sets the value of dressing to false
+        /// </summary>
         public void HoldDressing()
         {
             this.dressing = false;
         }
 
+        /// <summary>
+        /// Sets the value of cheese to false
+        /// </summary>
         public void HoldCheese()
         {
             this.cheese = false;
