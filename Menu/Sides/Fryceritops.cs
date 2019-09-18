@@ -15,6 +15,25 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        public override Size size
+        {
+            set
+            {
+                size = value;
+                switch (size)
+                {
+                    case Size.Large:
+                        Price = 1.95;
+                        Calories = 480;
+                        break;
+                }
+            }
+            get
+            {
+                
+            }
+        }
+
         public Fryceritops()
         {
             this.Price = 0.99;
