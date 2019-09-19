@@ -10,17 +10,9 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for the Wrap
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap: Entree
     {
-        /// <summary>
-        /// Public property for the price of the wrap
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Public property for the calories of the wrap
-        /// </summary>
-        public uint Calories { get; set; }
+        
 
         private bool lettuce = true;
         private bool dressing = true;
@@ -39,7 +31,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// List of ingredients in the wrap
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

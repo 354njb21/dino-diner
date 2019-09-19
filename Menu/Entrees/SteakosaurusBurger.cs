@@ -9,7 +9,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for the Steak Burger
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger: Entree
     {
         private bool bun = true;
         private bool mustard = true;
@@ -19,15 +19,7 @@ namespace DinoDiner.Menu.Entrees
         private bool onion = true;
         private bool lettuce = true;
 
-        /// <summary>
-        /// Public property for the price of the steak burger
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Public property for the calories of the steak burger
-        /// </summary>
-        public uint Calories { get; set; }
+        
 
         /// <summary>
         /// Constructor sets the values of the price and calories for the steak burger
@@ -41,7 +33,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// List of ingredients on the steak burger
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
