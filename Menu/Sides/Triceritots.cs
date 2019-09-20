@@ -7,6 +7,8 @@ namespace DinoDiner.Menu.Sides
 {
     public class Triceritots: Side
     {
+        protected Size size;
+
 
         public Triceritots()
         {
@@ -18,7 +20,7 @@ namespace DinoDiner.Menu.Sides
         {
             get
             {
-                return new List<string>() { "Potatoes", "Salt", "Vegetable Oil" };
+                return new List<string>() { "Potato", "Salt", "Vegetable Oil" };
             }
         }
 
@@ -26,9 +28,9 @@ namespace DinoDiner.Menu.Sides
         {
             set
             {
-                Size = value;
+                size = value;
 
-                switch (Size)
+                switch (size)
                 {
                     case Size.Large:
                         Price = 1.95;
@@ -47,7 +49,7 @@ namespace DinoDiner.Menu.Sides
 
             get
             {
-                return Size;
+                return size;
             }
         }
     }

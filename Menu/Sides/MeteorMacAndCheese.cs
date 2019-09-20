@@ -6,6 +6,7 @@ namespace DinoDiner.Menu.Sides
 {
     public class MeteorMacAndCheese : Side
     {
+        protected Size size;
 
         public MeteorMacAndCheese()
         {
@@ -27,9 +28,9 @@ namespace DinoDiner.Menu.Sides
             
             set
             {
-                Size = value;
+                size = value;
 
-                switch (Size)
+                switch (size)
                 {
                     case Size.Large:
                         Price = 1.95;
@@ -48,7 +49,7 @@ namespace DinoDiner.Menu.Sides
 
             get
             {
-                return Size;
+                return size;
             }
         }
 

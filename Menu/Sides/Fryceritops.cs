@@ -7,6 +7,8 @@ namespace DinoDiner.Menu.Sides
 {
     public class Fryceritops : Side
     {
+        protected Size size;
+
         public override List<string> Ingredients
         {
             get
@@ -20,8 +22,8 @@ namespace DinoDiner.Menu.Sides
 
             set
             {
-                Size = value;
-                switch (Size)
+                size = value;
+                switch (size)
                 {
                     case Size.Large:
                         Price = 1.95;
@@ -40,7 +42,7 @@ namespace DinoDiner.Menu.Sides
 
             get
             {
-                return Size;
+                return size;
             }
 
             
