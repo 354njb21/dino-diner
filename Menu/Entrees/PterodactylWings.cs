@@ -1,6 +1,6 @@
 ﻿/*PterodactylWings
  * Nathan Brown
- * Milestone 1
+ * Milestone 2
  */
 using System.Collections.Generic;
 

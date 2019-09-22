@@ -1,18 +1,34 @@
-﻿using System;
+﻿/*MezzorellaSticks
+ * Nathan Brown
+ * Milestone 1
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// The MezzorellaSticks class inherits the Side class properties, lists the ingredients, and handles the size of the side with a switch statement
+    /// </summary>
     public class MezzorellaSticks: Side
     {
         protected Size size;
+
+        
+      
+        /// <summary>
+        /// Setting the default price and calories
+        /// </summary>
         public MezzorellaSticks()
         {
             this.Price = .99;
             this.Calories = 540;
         }
 
+        /// <summary>
+        /// Override method for setting the ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -21,6 +37,9 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        /// <summary>
+        /// Override method to deal with the different sizes for the sides
+        /// </summary>
         public override Size Size
         {
             set

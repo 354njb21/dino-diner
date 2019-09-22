@@ -1,20 +1,32 @@
-﻿using System;
+﻿/*MeteorMacAndCheese
+ * Nathan Brown
+ * Milestone 2
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// The MeteorMacAndCheese class inherits the Side class properties, lists the ingredients, and handles the size of the side with a switch statement
+    /// </summary>
     public class MeteorMacAndCheese : Side
     {
         protected Size size;
 
+        /// <summary>
+        /// Setting the default price and calories
+        /// </summary>
         public MeteorMacAndCheese()
         {
             this.Price = .99;
             this.Calories = 420;
         }
 
-
+        /// <summary>
+        /// Override method for setting the ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -23,6 +35,9 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        /// <summary>
+        /// Override method to deal with the different sizes for the sides
+        /// </summary>
         public override Size Size
         {
             
