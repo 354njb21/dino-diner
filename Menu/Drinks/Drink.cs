@@ -6,6 +6,7 @@ namespace DinoDiner.Menu.Drinks
 {
     public abstract class Drink
     {
+        public Size Size;
 
         public double Price { get; set; }
 

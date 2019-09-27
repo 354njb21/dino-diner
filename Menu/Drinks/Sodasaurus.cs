@@ -19,7 +19,7 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
-        if (DrinkSize.Small){
+        
 
     }
 }
