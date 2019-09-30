@@ -4,14 +4,11 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class Size
+    public enum Size
     {
 
-        public enum DrinkSize 
-        {
-            Small,
-            Medium,
-            Large
-        }
+        Small,
+        Medium,
+        Large
     }
 }
