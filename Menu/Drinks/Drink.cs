@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Abstract class that all drinks inherit from
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink: IMenuItem
     {
         /// <summary>
         /// Virtual size public property that gets overriden in each drink class

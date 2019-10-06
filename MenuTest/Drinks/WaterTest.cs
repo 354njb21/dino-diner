@@ -3,13 +3,12 @@
  * Milestone 3
  */
 using DinoDiner.Menu;
-using DinoDiner.Menu.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace MenuTest.Drinks
+namespace MenuTest
 {
     /// <summary>
     /// Tests for the Water

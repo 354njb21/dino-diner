@@ -1,18 +1,19 @@
 ﻿/*JurassicJava.cs
  * Nathan Brown
- * Milestone 3
+ * Milestone 4
  */
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the JurassicJava drink
     /// </summary>
     public class JurassicJava: Drink
     {
+       
+
+       
         /// <summary>
         /// Sets the default values for the JurassicJava
         /// </summary>
@@ -104,6 +105,46 @@ namespace DinoDiner.Menu.Drinks
         public void DecafCoffee()
         {
             Decaf = true;
+        }
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+               
+                if (size == Size.Large)
+                {
+                    return $"Large Decaf Jurassic Java";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Decaf Jurassic Java";
+                }
+                else
+                {
+                    return $"Small Decaf Jurassic Java";
+                }
+        
+            }
+            else
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Jurassic Java";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Jurassic Java";
+                }
+                else
+                {
+                    return $"Small Jurassic Java";
+                }
+            }
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿/*SodasaurusFlavor.cs
  * Nathan Brown
- * Milestone 3
+ * Milestone 4
  */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MenuTest.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Public enum for the different soda flavors

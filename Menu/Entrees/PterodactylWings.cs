@@ -1,11 +1,11 @@
 ﻿/*PterodactylWings
  * Nathan Brown
- * Milestone 2
+ * Milestone 4
  */
 using System.Collections.Generic;
 
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class contains the details for the wings menu item
@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Entrees
     public class PterodactylWings: Entree
     {
 
-        
+       
 
         /// <summary>
         /// Constructor setting the values of the price and calories for the wings
@@ -35,6 +35,15 @@ namespace DinoDiner.Menu.Entrees
                 ingredients.Add("Wing Sauce");
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            return $"Pterodactyl Wings";
         }
 
     }

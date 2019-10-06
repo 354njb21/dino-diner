@@ -2,14 +2,13 @@
  * Nathan Brown
  * Milestone 3
  */
-using DinoDiner.Menu.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DinoDiner.Menu;
 
-namespace MenuTest.Drinks
+namespace MenuTest
 {
     /// <summary>
     /// Tests for the Sodasaurus

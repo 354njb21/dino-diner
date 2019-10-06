@@ -1,16 +1,19 @@
 ﻿/*SteakosaurusBurger
  * Nathan Brown
- * Milestone 2
+ * Milestone 4
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the Steak Burger
     /// </summary>
     public class SteakosaurusBurger: Entree
     {
+       
+
+
         private bool bun = true;
         private bool mustard = true;
         private bool ketchup = true;
@@ -105,6 +108,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.onion = false;
+        }
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            return $"Steakosaurus Burger";
         }
     }
 }

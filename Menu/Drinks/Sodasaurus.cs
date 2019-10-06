@@ -1,14 +1,13 @@
 ﻿/*Sodasaurus.cs
  * Nathan Brown
- * Milestone 3
+ * Milestone 4
  */
-using MenuTest.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using static DinoDiner.Menu.Size;
 
-namespace DinoDiner.Menu.Drinks 
+namespace DinoDiner.Menu
 
 {
     /// <summary>
@@ -16,6 +15,9 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public class Sodasaurus : Drink
     {
+
+
+
 
         /// <summary>
         /// Sets the flavor of the soda
@@ -76,6 +78,119 @@ namespace DinoDiner.Menu.Drinks
             get
             {
                 return size;
+            }
+        }
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (Flavor == SodasaurusFlavor.Cherry)
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Cherry Sodasaurus";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Cherry Sodasaurus";
+                }
+                else
+                {
+                    return $"Small Cherry Sodasaurus";
+                }
+            }
+            else if(Flavor == SodasaurusFlavor.Chocolate)
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Chocolate Sodasaurus";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Chocolate Sodasaurus";
+                }
+                else
+                {
+                    return $"Small Chocolate Sodasaurus";
+                }
+            }
+            else if(Flavor == SodasaurusFlavor.Cola)
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Cola Sodasaurus";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Cola Sodasaurus";
+                }
+                else
+                {
+                    return $"Small Cola Sodasaurus";
+                }
+            }
+            else if(Flavor == SodasaurusFlavor.Lime)
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Lime Sodasaurus";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Lime Sodasaurus";
+                }
+                else
+                {
+                    return $"Small Lime Sodasaurus";
+                }
+            }
+            else if(Flavor == SodasaurusFlavor.Orange)
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Orange Sodasaurus";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Orange Sodasaurus";
+                }
+                else
+                {
+                    return $"Small Orange Sodasaurus";
+                }
+            }
+            else if(Flavor == SodasaurusFlavor.RootBeer)
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large RootBeer Sodasaurus";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium RootBeer Sodasaurus";
+                }
+                else
+                {
+                    return $"Small RootBeer Sodasaurus";
+                }
+            }
+            else
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Vanilla Sodasaurus";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Vanilla Sodasaurus";
+                }
+                else
+                {
+                    return $"Small Vanilla Sodasaurus";
+                }
             }
         }
 

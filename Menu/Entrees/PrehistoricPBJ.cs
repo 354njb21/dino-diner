@@ -1,10 +1,10 @@
 ﻿/*PrehistoricPBJ
  * Nathan Brown
- * Milestone 2
+ * Milestone 4
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class that contains the menu item PrehistoricPBJ and all of its details
@@ -14,7 +14,7 @@ namespace DinoDiner.Menu.Entrees
         private bool peanutButter = true;
         private bool jelly = true;
 
-        
+       
 
         /// <summary>
         /// List containing all of the ingredients in the PBJ
@@ -53,6 +53,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            return $"Prehistoric PB&J";
         }
     }
 }

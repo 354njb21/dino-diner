@@ -1,19 +1,21 @@
 ﻿/*Triceritots
  * Nathan Brown
- * Milestone 2
+ * Milestone 4
  */
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
 
-namespace DinoDiner.Menu.Sides
+
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The Triceritots class inherits the Side class properties, lists the ingredients, and handles the size of the side with a switch statement
     /// </summary>
     public class Triceritots: Side
     {
+        
+
         protected Size size;
 
         /// <summary>
@@ -65,6 +67,26 @@ namespace DinoDiner.Menu.Sides
             get
             {
                 return size;
+            }
+        }
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (size == Size.Small)
+            {
+                return $"Small Triceritots";
+            }
+            else if (size == Size.Medium)
+            {
+                return $"Medium Triceritots";
+            }
+            else
+            {
+                return $"Large Triceritots";
             }
         }
     }

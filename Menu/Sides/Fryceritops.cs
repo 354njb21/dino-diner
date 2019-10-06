@@ -1,19 +1,20 @@
 ﻿/*Fryceritops
  * Nathan Brown
- * Milestone 2
+ * Milestone 4
  */
-using DinoDiner.Menu.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The Fryceritops class inherits the Side class properties, lists the ingredients, and handles the size of the side with a switch statement
     /// </summary>
     public class Fryceritops : Side
     {
+        
+
         protected Size size;
 
         /// <summary>
@@ -41,14 +42,17 @@ namespace DinoDiner.Menu.Sides
                     case Size.Large:
                         Price = 1.95;
                         Calories = 480;
+                        size = Size.Large;
                         break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 365;
+                        size = Size.Medium;
                         break;
                     case Size.Small:
                         Price = .99;
                         Calories = 222;
+                        size = Size.Small;
                         break;
                 }
             }
@@ -68,6 +72,27 @@ namespace DinoDiner.Menu.Sides
         {
             this.Price = 0.99;
             this.Calories = 222;
+        }
+
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (size == Size.Small)
+            {
+                return $"Small Fryceritops";
+            }
+            else if(size == Size.Medium)
+            {
+                return $"Medium Fryceritops";
+            }
+            else
+            {
+                return $"Large Fryceritops";
+            }
         }
     }
 }

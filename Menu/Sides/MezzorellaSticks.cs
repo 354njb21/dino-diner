@@ -1,18 +1,21 @@
 ﻿/*MezzorellaSticks
  * Nathan Brown
- * Milestone 1
+ * Milestone 4
  */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The MezzorellaSticks class inherits the Side class properties, lists the ingredients, and handles the size of the side with a switch statement
     /// </summary>
     public class MezzorellaSticks: Side
     {
+        
+
+
         protected Size size;
 
         
@@ -68,6 +71,26 @@ namespace DinoDiner.Menu.Sides
                 return size;
             }
         }
-    
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (size == Size.Small)
+            {
+                return $"Small Mezzorella Sticks";
+            }
+            else if (size == Size.Medium)
+            {
+                return $"Medium Mezzorella Sticks";
+            }
+            else
+            {
+                return $"Large Mezzorella Sticks";
+            }
+        }
+
     }
 }

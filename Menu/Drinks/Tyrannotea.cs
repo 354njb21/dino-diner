@@ -1,18 +1,19 @@
 ﻿/*Tyrannotea.cs
  * Nathan Brown
- * Milestone 3
+ * Milestone 4
  */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Contains the elements for the tyrannotea drink
     /// </summary>
     public class Tyrannotea: Drink
     {
+        
         private bool sweet;
 
         /// <summary>
@@ -112,6 +113,44 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             Lemon = true;
+        }
+
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (sweet)
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Sweet Tyrannotea";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Sweet Tyrannotea";
+                }
+                else
+                {
+                    return $"Small Sweet Tyrannotea";
+                }
+            }
+            else
+            {
+                if (size == Size.Large)
+                {
+                    return $"Large Tyrannotea";
+                }
+                else if (size == Size.Medium)
+                {
+                    return $"Medium Tyrannotea";
+                }
+                else
+                {
+                    return $"Small Tyrannotea";
+                }
+            }
         }
     }
 }

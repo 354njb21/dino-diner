@@ -1,4 +1,4 @@
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 using System.Collections.Generic;
 using Xunit;
 

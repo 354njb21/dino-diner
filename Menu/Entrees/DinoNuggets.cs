@@ -1,10 +1,10 @@
 ﻿/*DinoNuggets
  * Nathan Brown
- * Milestone 2
+ * Milestone 4
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the Nuggets
@@ -13,7 +13,6 @@ namespace DinoDiner.Menu.Entrees
     {
 
         
-
         
         private bool addNugget = true;
 
@@ -61,9 +60,16 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Overrides the ToString method based on the specific menu item
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            return $"Dino-Nuggets";
+        }
 
 
-        
     }
 }
 
