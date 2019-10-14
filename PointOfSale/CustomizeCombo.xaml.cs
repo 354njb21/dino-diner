@@ -1,4 +1,4 @@
-﻿/*MenuCategorySelection
+﻿/*CustomizeCombo
  * Nathan Brown
  * Milestone 5
  */
@@ -20,33 +20,13 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MenuCategorySelection.xaml
+    /// Interaction logic for CustomizeCombo.xaml
     /// </summary>
-    public partial class MenuCategorySelection : Page
+    public partial class CustomizeCombo : Page
     {
-        public MenuCategorySelection()
+        public CustomizeCombo()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Navigates to the combo page
-        /// </summary>
-        /// <param name="sender">References the controller</param>
-        /// <param name="args">Represents the base class for classes that contain event data</param>
-        private void SelectCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new ComboSelection());
-        }
-
-        /// <summary>
-        /// Navigates to the Entree page
-        /// </summary>
-        /// <param name="sender">References the controller</param>
-        /// <param name="args">Represents the base class for classes that contain event data</param>
-        private void SelectEntree(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new EntreeSelection());
         }
 
         /// <summary>

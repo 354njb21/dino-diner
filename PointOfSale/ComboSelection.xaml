@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="125"></Setter>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="Custom">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-01.png"/>
             </Button.Background>
@@ -25,7 +25,7 @@
                 </TextBlock>
             </DockPanel>
             </Button>
-        <Button>
+        <Button Click="Custom">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-02.png"/>
             </Button.Background>
@@ -36,7 +36,7 @@
             </DockPanel>
 
         </Button>
-        <Button>
+        <Button Click="Custom">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-05.png"/>
             </Button.Background>
@@ -46,9 +46,45 @@
                 </TextBlock>
             </DockPanel>
             </Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
+        <Button Click="Custom">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/DinoDiner-06.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    T-Rex King Burger Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click="Custom">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/DinoDiner-04.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Pterodactyl Wings Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click="Custom">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/DinoDiner-03.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Prehistoric PB&amp;J Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click="Custom">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/DinoDiner-07.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Veloci-Wrap Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
     </WrapPanel>
 </Page>
