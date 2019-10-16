@@ -16,8 +16,29 @@ namespace DinoDiner.Menu
     public class Sodasaurus : Drink
     {
 
+        /// <summary>
+        /// Gets a description for this item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
 
-
+        /// <summary>
+        /// Gets any special instructions for this order item
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Sets the flavor of the soda
