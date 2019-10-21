@@ -1,9 +1,10 @@
 ﻿/*MezzorellaSticks
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -11,10 +12,10 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The MezzorellaSticks class inherits the Side class properties, lists the ingredients, and handles the size of the side with a switch statement
     /// </summary>
-    public class MezzorellaSticks: Side
+    public class MezzorellaSticks: Side, INotifyPropertyChanged
     {
-        
 
+        
 
         protected Size size;
 
@@ -54,14 +55,23 @@ namespace DinoDiner.Menu
                     case Size.Large:
                         Price = 1.95;
                         Calories = 720;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 610;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Small:
                         Price = .99;
                         Calories = 540;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                 }
             }
@@ -89,6 +99,29 @@ namespace DinoDiner.Menu
             else
             {
                 return $"Large Mezzorella Sticks";
+            }
+        }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 

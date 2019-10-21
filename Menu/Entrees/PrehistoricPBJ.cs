@@ -1,6 +1,6 @@
 ﻿/*PrehistoricPBJ
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,27 +10,18 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class that contains the menu item PrehistoricPBJ and all of its details
     /// </summary>
-    public class PrehistoricPBJ: Entree, INotifyPropertyChanged
+    public class PrehistoricPBJ: Entree
     {
         private bool peanutButter = true;
         private bool jelly = true;
 
-        /// <summary>
-        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special properties
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        //Helper function for noifying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
 
 
         /// <summary>
         /// Gets and sets the description
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -41,7 +32,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets any special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

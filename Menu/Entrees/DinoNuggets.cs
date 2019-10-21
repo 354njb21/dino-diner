@@ -1,8 +1,9 @@
 ﻿/*DinoNuggets
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -13,7 +14,7 @@ namespace DinoDiner.Menu
     {
 
         
-        
+
         private bool addNugget = true;
 
         private int counter = 6;
@@ -58,6 +59,10 @@ namespace DinoDiner.Menu
                 Calories = Calories + 59;
                 counter++;
             }
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+            NotifyOfPropertyChange("Calories");
+            NotifyOfPropertyChange("Price");
         }
 
         /// <summary>
@@ -69,7 +74,34 @@ namespace DinoDiner.Menu
             return $"Dino-Nuggets";
         }
 
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
 
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (counter > 6)
+                {
+                    int extra = counter - 6;
+                    special.Add(extra + " Extra Nuggets");
+                    
+                }
+                return special.ToArray();
+            }
+        }
     }
 }
 

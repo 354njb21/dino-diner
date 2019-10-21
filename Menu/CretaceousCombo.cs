@@ -4,13 +4,26 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
+
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo: IMenuItem
+    public class CretaceousCombo: IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for noifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         // Backing Variables
         private Size size;
 
@@ -110,9 +123,9 @@ namespace DinoDiner.Menu
             {
                 List<string> ingredients = new List<string>();
                 ingredients.AddRange(Entree.Special);
-                ingredients.Add(Side.ToString());
+                ingredients.Add(Side.Description);
                 ingredients.AddRange(Side.Special);
-                ingredients.Add(Drink.ToString());
+                ingredients.Add(Drink.Description);
                 ingredients.AddRange(Drink.Special);
                 return ingredients.ToArray();
             }

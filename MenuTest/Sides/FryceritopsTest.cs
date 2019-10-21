@@ -83,5 +83,55 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            Fryceritops fry = new Fryceritops();
+            fry.Size = size;
+            Assert.Equal($"{size} Fryceritops", fry.Description);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyOfCaloriesPropertyChange(Size size)
+        {
+            Fryceritops fry = new Fryceritops();
+            Assert.PropertyChanged(fry, "Calories", () =>
+            {
+                fry.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyOfPricePropertyChange(Size size)
+        {
+            Fryceritops fry = new Fryceritops();
+            Assert.PropertyChanged(fry, "Price", () =>
+            {
+                fry.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyOfDescriptionPropertyChange(Size size)
+        {
+            Fryceritops fry = new Fryceritops();
+            Assert.PropertyChanged(fry, "Description", () =>
+            {
+                fry.Size = size;
+            });
+        }
     }
 }

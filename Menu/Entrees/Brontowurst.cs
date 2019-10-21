@@ -1,8 +1,9 @@
 ﻿/*Brontowurst
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -15,9 +16,8 @@ namespace DinoDiner.Menu
         private bool bun = true;
         private bool peppers = true;
 
-      
-
         
+
         /// <summary>
         /// Constructor sets the price and calories properties
         /// </summary>
@@ -48,6 +48,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -56,6 +58,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -64,6 +68,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -73,6 +79,33 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"Brontowurst";
+        }
+
+        /// <summary>
+        /// Description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+            
+        }
+
+        /// <summary>
+        /// Special instructions for the menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!peppers) special.Add("Hold Peppers");
+                if (!onions) special.Add("Hold Onion");
+                if (!bun) special.Add("Hold Bun");
+                return special.ToArray();
+            }
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿/*Tyrannotea.cs
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -11,9 +12,13 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Contains the elements for the tyrannotea drink
     /// </summary>
-    public class Tyrannotea: Drink
+    public class Tyrannotea : Drink
     {
+
         
+        /// <summary>
+        /// Private backing variable for sweet
+        /// </summary>
         private bool sweet;
 
         /// <summary>
@@ -61,7 +66,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Water", "Tea"};
+                List<string> ingredients = new List<string>() { "Water", "Tea" };
                 if (Lemon) ingredients.Add("Lemon");
                 if (Sweet) ingredients.Add("Cane Sugar");
                 return ingredients;
@@ -81,14 +86,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = .99;
                         Calories = 8;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Medium:
                         Price = 1.49;
                         Calories = 16;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Large:
                         Price = 1.99;
                         Calories = 32;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                 }
 
@@ -96,6 +110,8 @@ namespace DinoDiner.Menu
                 {
                     Calories *= 2;
                     Ingredients.Add("Cane Suagar");
+                    NotifyOfPropertyChange("Calories");
+                    NotifyOfPropertyChange("Description");
                 }
             }
             get
@@ -105,7 +121,7 @@ namespace DinoDiner.Menu
         }
 
 
-        
+
 
         /// <summary>
         /// Adds a lemon to the tea
@@ -113,6 +129,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -152,5 +169,31 @@ namespace DinoDiner.Menu
                 }
             }
         }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+
     }
 }

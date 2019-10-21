@@ -96,7 +96,208 @@ namespace MenuTest.Entrees
         }
 
 
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.Equal("Steakosaurus Burger", steak.Description);
+        }
 
+        [Fact]
+        public void SpecialShouldHoldOnions()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldOnion();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Onion", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldPickle()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldPickle();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldMustard()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldMustard();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldKetchup()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldKetchup();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldBun()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldBun();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldTomato()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldTomato();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Tomato", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldLettuce()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldLettuce();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldLettuceAndTomatoAndKetchupAndPickle()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            steak.HoldLettuce();
+            steak.HoldTomato();
+            steak.HoldKetchup();
+            steak.HoldPickle();
+            Assert.Collection<string>(steak.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Tomato", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void HoldOnionShouldNotifyOfSpecialPropertyChange()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.PropertyChanged(steak, "Special", () =>
+            {
+                steak.HoldOnion();
+            });
+        }
+
+        [Fact]
+        public void HoldLettuceShouldNotifyOfSpecialPropertyChange()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.PropertyChanged(steak, "Special", () =>
+            {
+                steak.HoldLettuce();
+            });
+        }
+
+        [Fact]
+        public void HoldTomatoShouldNotifyOfSpecialPropertyChange()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.PropertyChanged(steak, "Special", () =>
+            {
+                steak.HoldTomato();
+            });
+        }
+
+        [Fact]
+        public void HoldKetchupShouldNotifyOfSpecialPropertyChange()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.PropertyChanged(steak, "Special", () =>
+            {
+                steak.HoldKetchup();
+            });
+        }
+
+        [Fact]
+        public void HoldPickleShouldNotifyOfSpecialPropertyChange()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.PropertyChanged(steak, "Special", () =>
+            {
+                steak.HoldPickle();
+            });
+        }
+
+        [Fact]
+        public void HoldMustardShouldNotifyOfSpecialPropertyChange()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.PropertyChanged(steak, "Special", () =>
+            {
+                steak.HoldMustard();
+            });
+        }
+
+        [Fact]
+        public void HoldBunShouldNotifyOfSpecialPropertyChange()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.PropertyChanged(steak, "Special", () =>
+            {
+                steak.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
+            Assert.Empty(steak.Special);
+        }
     }
 
 }

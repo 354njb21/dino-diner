@@ -1,9 +1,10 @@
 ﻿/*MeteorMacAndCheese
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -11,9 +12,18 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The MeteorMacAndCheese class inherits the Side class properties, lists the ingredients, and handles the size of the side with a switch statement
     /// </summary>
-    public class MeteorMacAndCheese : Side
+    public class MeteorMacAndCheese : Side, INotifyPropertyChanged
     {
-        
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for noifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         protected Size size;
 
@@ -52,14 +62,23 @@ namespace DinoDiner.Menu
                     case Size.Large:
                         Price = 1.95;
                         Calories = 520;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 490;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Small:
                         Price = .99;
                         Calories = 420;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                 }
             }
@@ -87,6 +106,29 @@ namespace DinoDiner.Menu
             else
             {
                 return $"Large Meteor Mac and Cheese";
+            }
+        }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 

@@ -83,5 +83,55 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            Triceritots tots = new Triceritots();
+            tots.Size = size;
+            Assert.Equal($"{size} Triceritots", tots.Description);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyOfCaloriesPropertyChange(Size size)
+        {
+            Triceritots tots = new Triceritots();
+            Assert.PropertyChanged(tots, "Calories", () =>
+            {
+                tots.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyOfPricePropertyChange(Size size)
+        {
+            Triceritots tots = new Triceritots();
+            Assert.PropertyChanged(tots, "Price", () =>
+            {
+                tots.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyOfDescriptionPropertyChange(Size size)
+        {
+            Triceritots tots = new Triceritots();
+            Assert.PropertyChanged(tots, "Description", () =>
+            {
+                tots.Size = size;
+            });
+        }
     }
 }

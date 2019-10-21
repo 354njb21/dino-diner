@@ -1,9 +1,9 @@
 ﻿/*VelociWrap
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System.Collections.Generic;
-
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -12,7 +12,9 @@ namespace DinoDiner.Menu
     /// </summary>
     public class VelociWrap: Entree
     {
-    
+
+        
+
         private bool lettuce = true;
         private bool dressing = true;
         private bool cheese = true;
@@ -49,6 +51,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -57,6 +61,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -65,6 +71,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -74,6 +82,32 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"Veloci-Wrap";
+        }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!cheese) special.Add("Hold Cheese");
+                if (!lettuce) special.Add("Hold Lettuce");
+                if (!dressing) special.Add("Hold Dressing");
+                return special.ToArray();
+            }
         }
     }
 }

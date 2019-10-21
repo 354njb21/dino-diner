@@ -1,9 +1,10 @@
 ﻿/*Sodasaurus.cs
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using static DinoDiner.Menu.Size;
 
@@ -15,11 +16,12 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Sodasaurus : Drink
     {
+        
 
         /// <summary>
         /// Gets a description for this item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -30,7 +32,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets any special instructions for this order item
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
@@ -41,9 +43,26 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Private backing variable for the Flavor property
+        /// </summary>
+        private SodasaurusFlavor flavor;
+
+        /// <summary>
         /// Sets the flavor of the soda
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor {
+            get
+            {
+                return flavor;
+                
+            }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Flavor");
+            }
+
+        }
 
         /// <summary>
         /// Ingredients of the soda
@@ -85,14 +104,20 @@ namespace DinoDiner.Menu
                     case Small:
                         Price = 1.50;
                         Calories = 112;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
                         break;
                     case Medium:
                         Price = 2.00;
                         Calories = 156;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
                         break;
                     case Large:
                         Price = 2.50;
                         Calories = 208;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
                         break;
                 }
             }
@@ -110,6 +135,7 @@ namespace DinoDiner.Menu
         {
             if (Flavor == SodasaurusFlavor.Cherry)
             {
+                
                 if (size == Size.Large)
                 {
                     return $"Large Cherry Sodasaurus";
@@ -125,6 +151,7 @@ namespace DinoDiner.Menu
             }
             else if(Flavor == SodasaurusFlavor.Chocolate)
             {
+                
                 if (size == Size.Large)
                 {
                     return $"Large Chocolate Sodasaurus";
@@ -140,6 +167,7 @@ namespace DinoDiner.Menu
             }
             else if(Flavor == SodasaurusFlavor.Cola)
             {
+                
                 if (size == Size.Large)
                 {
                     return $"Large Cola Sodasaurus";
@@ -155,6 +183,7 @@ namespace DinoDiner.Menu
             }
             else if(Flavor == SodasaurusFlavor.Lime)
             {
+                
                 if (size == Size.Large)
                 {
                     return $"Large Lime Sodasaurus";
@@ -170,6 +199,7 @@ namespace DinoDiner.Menu
             }
             else if(Flavor == SodasaurusFlavor.Orange)
             {
+                
                 if (size == Size.Large)
                 {
                     return $"Large Orange Sodasaurus";
@@ -185,6 +215,7 @@ namespace DinoDiner.Menu
             }
             else if(Flavor == SodasaurusFlavor.RootBeer)
             {
+                
                 if (size == Size.Large)
                 {
                     return $"Large RootBeer Sodasaurus";

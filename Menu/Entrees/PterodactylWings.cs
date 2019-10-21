@@ -1,6 +1,6 @@
 ﻿/*PterodactylWings
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System.Collections.Generic;
 
@@ -45,6 +45,30 @@ namespace DinoDiner.Menu
         {
             return $"Pterodactyl Wings";
         }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
 
     }
 }

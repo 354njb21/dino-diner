@@ -1,9 +1,10 @@
 ﻿/*Fryceritops
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -13,6 +14,8 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Fryceritops : Side
     {
+        
+
         
 
         protected Size size;
@@ -43,16 +46,25 @@ namespace DinoDiner.Menu
                         Price = 1.95;
                         Calories = 480;
                         size = Size.Large;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 365;
                         size = Size.Medium;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Small:
                         Price = .99;
                         Calories = 222;
                         size = Size.Small;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                 }
             }
@@ -92,6 +104,29 @@ namespace DinoDiner.Menu
             else
             {
                 return $"Large Fryceritops";
+            }
+        }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
     }

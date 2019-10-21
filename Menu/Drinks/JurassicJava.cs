@@ -1,8 +1,9 @@
 ﻿/*JurassicJava.cs
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -11,9 +12,9 @@ namespace DinoDiner.Menu
     /// </summary>
     public class JurassicJava: Drink
     {
-       
+        
 
-       
+
         /// <summary>
         /// Sets the default values for the JurassicJava
         /// </summary>
@@ -66,14 +67,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = .59;
                         Calories = 2;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Medium:
                         Price = .99;
                         Calories = 4;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Large:
                         Price = 1.49;
                         Calories = 8;
+                        NotifyOfPropertyChange("Price");
+                        NotifyOfPropertyChange("Calories");
+                        NotifyOfPropertyChange("Description");
                         break;
                 }
             }
@@ -89,6 +99,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCreamer()
         {
             RoomForCream = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -97,6 +108,8 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -105,6 +118,7 @@ namespace DinoDiner.Menu
         public void DecafCoffee()
         {
             Decaf = true;
+            NotifyOfPropertyChange("Description");
         }
 
         /// <summary>
@@ -144,6 +158,31 @@ namespace DinoDiner.Menu
                 {
                     return $"Small Jurassic Java";
                 }
+            }
+        }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) special.Add("Add Ice");
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                return special.ToArray();
             }
         }
     }

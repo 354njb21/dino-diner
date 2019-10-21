@@ -1,9 +1,10 @@
 ﻿/*Water.cs
  * Nathan Brown
- * Milestone 4
+ * Milestone 5
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -13,6 +14,8 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Water: Drink
     {
+
+        
 
         /// <summary>
         /// Sets the default values for water
@@ -41,6 +44,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -66,11 +70,13 @@ namespace DinoDiner.Menu
                 size = value;
                 Price = .10;
                 Calories = 0;
+                NotifyOfPropertyChange("Description");
             }
             get
             {
                 return size;
             }
+            
         }
 
         /// <summary>
@@ -92,5 +98,32 @@ namespace DinoDiner.Menu
                 return $"Small Water";
             }
         }
+
+        /// <summary>
+        /// Description for the menu order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the menu order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+            
+        }
+
     }
 }
