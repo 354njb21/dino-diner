@@ -28,5 +28,22 @@ namespace PointOfSale
             order.Items.Add(new Fryceritops());
             order.Items.Add(new Tyrannotea());
         }
+
+        public void OnLoadComplete(object sender, RoutedEventArgs args)
+        {
+            SetFrameDataContext();
+        }
+
+        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            SetFrameDataContext();
+        }
+
+        private void SetFrameDataContext()
+        {
+            FrameworkElement content = OrderInterface.Content as FrameworkElement;
+            if (content == null) return;
+            content.DataContext = OrderInterface.DataContext;
+        }
     }
 }

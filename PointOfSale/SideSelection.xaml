@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="125"></Setter>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Name="AddBtnFryceritops">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-08.png"/>
             </Button.Background>
@@ -25,7 +25,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Name="AddBtnMeteorMacAndCheese">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-09.png"/>
             </Button.Background>
@@ -36,7 +36,7 @@
             </DockPanel>
 
         </Button>
-        <Button>
+        <Button Name="AddBtnMezzorellaSticks">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-10.png"/>
             </Button.Background>
@@ -46,7 +46,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Name="AddBtnTriceritots">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-11.png"/>
             </Button.Background>
@@ -56,13 +56,13 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <RadioButton>
+        <RadioButton Name="PickSmall">
             Small
         </RadioButton>
-        <RadioButton>
+        <RadioButton Name="PickMedium">
             Medium
         </RadioButton>
-        <RadioButton>
+        <RadioButton Name="PickLarge">
             Large
         </RadioButton>
     </WrapPanel>
