@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DinoDiner.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        public NavigationService NavigationService { get; set; }
         public OrderControl()
         {
             InitializeComponent();
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
+        {
+            if(OrderItems.SelectedItem is Side side)
+            {
+                NavigationService?.Navigate(new SideSelection(side));
+            }
         }
     }
 }

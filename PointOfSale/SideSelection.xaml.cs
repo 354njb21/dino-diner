@@ -25,15 +25,65 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        public Side Side { get; set; }
+
         public SideSelection()
         {
             InitializeComponent();
         }
 
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            Side = side;
+        }
+
+        private void SelectSide(Side side)
+        {
+            if (DataContext is Order order)
+            {
+                order.Items.Add(side);
+                this.Side = side;
+            }
+        }
+
+        private void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if (Side != null)
+            {
+                this.Side.Size = size;
+
+            }
+        }
+
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
-            Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
+            SelectSide(new Fryceritops());
+        }
+
+        public void AddTriceritots(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new Triceritots());
+        }
+
+        public void AddMeteorMacAndCheese(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MeteorMacAndCheese());
+        }
+
+        protected void OnSelectLarge(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Large);
+        }
+
+        protected void OnSelectMedium(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Medium);
+        }
+
+        protected void OnSelectSmall(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Small);
         }
     }
 }
