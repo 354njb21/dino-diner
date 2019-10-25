@@ -20,9 +20,16 @@
                  SelectionChanged="OnSelectionChanged">
         <ListBox.ItemTemplate>
             <DataTemplate>
-                <StackPanel>
+                <StackPanel Width="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
                     <TextBlock Text="{Binding Path=Description}"/>
-                    
+                    <ListBox ItemsSource="{Binding Path=Ingredients}"/>
+                        <Button Grid.Column="1" Background="Red" Foreground="White" Click="OnRemoveItem">x</Button>
                 </StackPanel>
             </DataTemplate>
             
@@ -30,21 +37,10 @@
         </ListBox>
         <Border Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Subtotal Cost:"/>
-                
+                <TextBox Text="Price:"/>
+                <TextBox Text="$____"/>
             </StackPanel>
         </Border>
-        <Button Name="Cancel" 
-                Content="Cancel" 
-                Grid.Row="3" 
-                Width="100" 
-                HorizontalAlignment="Left"
-                Click="CancelExistingOrder"/>
-        <Button Name="Submit" 
-                Content="Submit" 
-                Grid.Row="3" 
-                Width="100" 
-                HorizontalAlignment="Right"
-                Click="SubmitExistingOrder"/>
+        <TextBox Text="Buttons Go Here" Grid.Row="3"/>
     </Grid>
 </UserControl>
