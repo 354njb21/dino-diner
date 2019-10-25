@@ -46,7 +46,7 @@ namespace PointOfSale
 
         private void CancelExistingOrder(object sender, RoutedEventArgs args)
         {
-            if (OrderItems.HasItems == true)
+           if(DataContext is Order order)
             {
                 
             }

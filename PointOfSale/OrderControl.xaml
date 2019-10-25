@@ -26,9 +26,11 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <Button Click="OnRemoveItem"  Background="Red" Foreground="White" Grid.Column="1">x</Button>
                         </Grid>
-                    <TextBlock Text="{Binding Path=Description}"/>
-                    <ListBox ItemsSource="{Binding Path=Ingredients}"/>
+                        
                 </StackPanel>
             </DataTemplate>
             
