@@ -34,5 +34,18 @@ namespace PointOfSale
                 NavigationService?.Navigate(new SideSelection(side));
             }
         }
+
+        private void OnRemoveItem(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                if(OrderItems.SelectedItem is IOrderItem item)
+                {
+                    order.Items.Remove(item);
+                }
+                
+            }
+            
+        }
     }
 }
