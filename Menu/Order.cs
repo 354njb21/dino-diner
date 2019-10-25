@@ -6,18 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// A class for a customer order
     /// </summary>
-    public class Order
+    public class Order: INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Collection of IOrderItem's 
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; } = new ObservableCollection<IOrderItem>();
+        public ObservableCollection<IOrderItem> Items { get; set; }
 
         /// <summary>
         /// Subtotal cost of the customer order
@@ -69,6 +75,19 @@ namespace DinoDiner.Menu
                 double total = SubtotalCost + SalesTaxCost;
                 return total;
             }
+        }
+
+        public Order()
+        {
+            Items = new ObservableCollection<IOrderItem>();
+            Items.CollectionChanged += OnCollectionChanged;
+        }
+
+        private void OnCollectionChanged(object sender, EventArgs args)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
         }
     }
 }
