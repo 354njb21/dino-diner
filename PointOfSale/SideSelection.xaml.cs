@@ -71,6 +71,11 @@ namespace PointOfSale
             SelectSide(new MeteorMacAndCheese());
         }
 
+        public void AddMezzorellaSticks(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MezzorellaSticks());
+        }
+
         protected void OnSelectLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);

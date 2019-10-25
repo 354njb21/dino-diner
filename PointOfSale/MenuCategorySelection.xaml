@@ -17,9 +17,13 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0">Combos</Button>
-        <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1">Entrees</Button>
-        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="0">Drinks</Button>
-        <Button Click="SelectSide" Grid.Row="1" Grid.Column="1">Sides</Button>
+        
+        <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0" FontSize="48" Foreground="#FF20B219" Content="Combos"/>
+        <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1" FontSize="48" Foreground="#FF20B219" Content="Entrees"/>
+        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="0" FontSize="48" Foreground="#FF20B219" Content="Drinks"/>
+        <Button Click="SelectSide" Grid.Row="1" Grid.Column="1" FontSize="48"  Foreground="#FF20B219" Content="Sides"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/DinoDiner-12.png"/>
+        </Grid.Background>
     </Grid>
 </Page>

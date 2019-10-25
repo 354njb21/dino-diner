@@ -19,8 +19,8 @@
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-13.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <DockPanel Height="120">
+                <TextBlock VerticalAlignment="Bottom" Foreground="#FF421E1E" FontSize="18">
                     Jurassic Java
                 </TextBlock>
             </DockPanel>
@@ -29,19 +29,19 @@
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-14.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <DockPanel Height="120">
+                <TextBlock VerticalAlignment="Bottom" Foreground="#FFA23636" FontSize="16">
                 Sodasaurus
                 </TextBlock>
             </DockPanel>
 
         </Button>
-        <Button Click="SelectTea">
+        <Button Click="SelectTea" Foreground="#FF421E1E" FontSize="20">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-12.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <DockPanel Height="120">
+                <TextBlock VerticalAlignment="Bottom">
                     Tyrannotea
                 </TextBlock>
             </DockPanel>
@@ -50,20 +50,30 @@
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-15.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
-                    Water
-                </TextBlock>
+            <DockPanel Height="122">
+                <TextBlock VerticalAlignment="Bottom" Foreground="#FF06D5F5" FontSize="18"><Run Text="Water"/></TextBlock>
             </DockPanel>
         </Button>
-        <RadioButton>
-            Small
-        </RadioButton>
-        <RadioButton>
-            Medium
-        </RadioButton>
-        <RadioButton>
-            Large
-        </RadioButton>
+
+
+
+        <StackPanel>
+                <RadioButton Click="OnSelectSmall" FontSize="20">
+                    Small
+                </RadioButton>
+                <RadioButton Click="OnSelectMedium" FontSize="20">
+                    Medium
+                </RadioButton>
+                <RadioButton Click="OnSelectLarge" FontSize="20">
+                    Large
+                </RadioButton>
+        </StackPanel>
+
+        <Button Name="Lemon" Content="Lemon" Tag="Lemon" Visibility="Hidden" Width="100" Height="75"/>
+        <Button Name="Flavor" Content="Flavor" Visibility="Hidden" Width="100" Height="75"/>
+        <Button Name="Sweet" Content="Sweet" Tag="Sweet" Visibility="Hidden" Width="100" Height="75"/>
+        <Button Name="Decaf" Content="Decaf" Tag="Decaf" Visibility="Hidden" Width="100" Height="75"/>
     </WrapPanel>
+    
+    
 </Page>

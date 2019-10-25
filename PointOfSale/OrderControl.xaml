@@ -22,7 +22,7 @@
             <DataTemplate>
                 <StackPanel>
                     <TextBlock Text="{Binding Path=Description}"/>
-                    <ListBox ItemsSource="{Binding Path=Ingredients}"/>
+                    
                 </StackPanel>
             </DataTemplate>
             
@@ -30,10 +30,21 @@
         </ListBox>
         <Border Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Price:"/>
-                <TextBox Text="$____"/>
+                <TextBox Text="Subtotal Cost:"/>
+                
             </StackPanel>
         </Border>
-        <TextBox Text="Buttons Go Here" Grid.Row="3"/>
+        <Button Name="Cancel" 
+                Content="Cancel" 
+                Grid.Row="3" 
+                Width="100" 
+                HorizontalAlignment="Left"
+                Click="CancelExistingOrder"/>
+        <Button Name="Submit" 
+                Content="Submit" 
+                Grid.Row="3" 
+                Width="100" 
+                HorizontalAlignment="Right"
+                Click="SubmitExistingOrder"/>
     </Grid>
 </UserControl>

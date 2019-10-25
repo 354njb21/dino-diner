@@ -4,7 +4,8 @@ using System.Text;
 
 namespace DinoDiner.Menu.Mock_Orders
 {
-    class MockDrink
+    public class MockDrink
     {
+
     }
 }
