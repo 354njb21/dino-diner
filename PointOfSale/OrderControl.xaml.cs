@@ -64,7 +64,7 @@ namespace PointOfSale
             {
                 if(OrderItems.SelectedItem is IOrderItem item)
                 {
-                    order.Items.Remove(item);
+                    order.Remove(item);
                 }
                 
             }

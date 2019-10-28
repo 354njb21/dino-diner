@@ -49,7 +49,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(drink);
+                order.Add(drink);
                 this.Drink = drink;
             }
         }
