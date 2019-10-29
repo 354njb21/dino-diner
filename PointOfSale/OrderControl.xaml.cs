@@ -1,4 +1,8 @@
-﻿using DinoDiner.Menu;
+﻿/*OrderControl
+ * Nathan Brown
+ * Point of Sale Milestone 2
+ */
+using DinoDiner.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,10 +50,8 @@ namespace PointOfSale
 
         private void CancelExistingOrder(object sender, RoutedEventArgs args)
         {
-           if(DataContext is Order order)
-            {
-                
-            }
+            Order order = new Order();
+            
             
         }
 

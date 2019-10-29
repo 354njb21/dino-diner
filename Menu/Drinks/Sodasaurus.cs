@@ -60,6 +60,7 @@ namespace DinoDiner.Menu
             {
                 flavor = value;
                 NotifyOfPropertyChange("Flavor");
+                NotifyOfPropertyChange("Description");
             }
 
         }

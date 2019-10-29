@@ -1,6 +1,6 @@
 ﻿/*SideSelection
  * Nathan Brown
- * Milestone 5
+ * Point of Sale Milestone 2
  */
 using System;
 using System.Collections.Generic;
@@ -54,6 +54,7 @@ namespace PointOfSale
                 this.Side.Size = size;
 
             }
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         public void AddFryceritops(object sender, RoutedEventArgs args)

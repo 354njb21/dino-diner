@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBox Text="Order" Grid.Row="0"/>
@@ -27,7 +27,7 @@
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{Binding Path=Description}"/>
+                            <TextBlock  Name="Cost" Text="{Binding Path=Description}"/>
                             <Button Click="OnRemoveItem"  Background="Red" Foreground="White" Grid.Column="1">x</Button>
                         </Grid>
                         
@@ -36,12 +36,16 @@
             
         </ListBox.ItemTemplate>
         </ListBox>
-        <Border Grid.Row="2">
-            <StackPanel Orientation="Horizontal">
-                <TextBox Text="Subtotal Cost:"/>
-                
-            </StackPanel>
-        </Border>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Height="70" Background="White" Grid.Row="2" Width="200" Text= "{Binding Path=SubtotalCost}"></TextBlock>
+            
+        </StackPanel>
+
+        
+
+            
+        
         <Button Name="Cancel" 
                 Content="Cancel" 
                 Grid.Row="3" 

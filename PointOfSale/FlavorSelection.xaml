@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="125"></Setter>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Tag="Vanilla" Click="SelectVanilla">
             
             <DockPanel Height="25">
                 <TextBlock DockPanel.Dock="Bottom">
@@ -23,7 +23,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Tag="Cola" Click="SelectCola">
             <DockPanel Height="25">
                 <TextBlock DockPanel.Dock="Bottom">
                     Cola
@@ -31,38 +31,45 @@
             </DockPanel>
 
         </Button>
-        <Button>
+        <Button Tag="Orange" Click="SelectOrange">
             <DockPanel Height="25">
                 <TextBlock DockPanel.Dock="Bottom">
                     Orange
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Tag="RootBeer" Click="SelectRootBeer">
             <DockPanel Height="25">
                 <TextBlock DockPanel.Dock="Bottom">
                     RootBeer
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Tag="Lime" Click="SelectLime">
             <DockPanel Height="25">
                 <TextBlock DockPanel.Dock="Bottom">
                     Lime
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Tag="Chocolate" Click="SelectChocolate">
             <DockPanel Height="25">
                 <TextBlock DockPanel.Dock="Bottom">
                     Chocolate
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button>
+        <Button Tag="Cherry" Click="SelectCherry">
             <DockPanel Height="25">
                 <TextBlock DockPanel.Dock="Bottom">
                     Cherry
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click="OnDone" Background="Red" Foreground="White" FontSize="20">
+            <DockPanel Height="25">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Done
                 </TextBlock>
             </DockPanel>
         </Button>

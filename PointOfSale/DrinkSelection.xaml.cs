@@ -1,6 +1,6 @@
 ﻿/*DrinkSelection
  * Nathan Brown
- * Milestone 5
+ * Point of Sale Milestone 2
  */
 using DinoDiner.Menu;
 using System;
@@ -25,6 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        /// <summary>
+        /// Public property instance of the Drink class
+        /// </summary>
         public Drink Drink { get; set; }
 
         public DrinkSelection()
@@ -32,11 +35,19 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Sets the drink that has been selected
+        /// </summary>
+        /// <param name="drink">The drink being passed into the class</param>
         public DrinkSelection(Drink drink)
         {
             Drink = drink;
         }
 
+        /// <summary>
+        /// Sets the size of the drink
+        /// </summary>
+        /// <param name="size">The size being passed in from the selection</param>
         private void SelectSize(DinoDiner.Menu.Size size)
         {
             if (Drink != null)
@@ -45,6 +56,10 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Adds the selected drink to the list of order items
+        /// </summary>
+        /// <param name="drink"></param>
         private void SelectDrink(Drink drink)
         {
             if (DataContext is Order order)
@@ -67,12 +82,7 @@ namespace PointOfSale
             Lemon.Visibility = Visibility.Visible;
 
 
-            /*Button lemon = new Button();
-            lemon.Height = 80;
-            lemon.Width = 150;
-            lemon.Content = "Lemon";
-            Drinks.Children.Add(lemon);*/
-
+           
             SelectDrink(new Water());
 
         }
@@ -88,11 +98,7 @@ namespace PointOfSale
             Sweet.Visibility = Visibility.Hidden;
             Flavor.Visibility = Visibility.Hidden;
             Decaf.Visibility = Visibility.Visible;
-            /*Button java = new Button();
-            java.Height = 80;
-            java.Width = 150;
-            java.Content = "Decaf";
-            Drinks.Children.Add(java);*/
+            
 
             SelectDrink(new JurassicJava());
         }
@@ -109,13 +115,8 @@ namespace PointOfSale
             Sweet.Visibility = Visibility.Hidden;
             Flavor.Visibility = Visibility.Visible;
 
-            /*Button soda= new Button();
-            soda.Height = 80;
-            soda.Width = 150;
-            soda.Content = "Flavor";
-            Drinks.Children.Add(soda);
-            soda.Click += new RoutedEventHandler(SelectFlavor);*/
-            
+
+            SelectDrink(new Sodasaurus());
 
         }
 
@@ -126,7 +127,8 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         private void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            Sodasaurus soda = new Sodasaurus();
+            NavigationService.Navigate(new FlavorSelection(soda));
         }
 
         /// <summary>
@@ -141,33 +143,36 @@ namespace PointOfSale
             Lemon.Visibility = Visibility.Visible;
             Sweet.Visibility = Visibility.Visible;
 
-            /*Button tea = new Button();
-            tea.Height = 80;
-            tea.Width = 150;
-            tea.Content = "Sweet";
-            Drinks.Children.Add(tea);
-
             
-
-            Button lemon = new Button();
-            lemon.Height = 80;
-            lemon.Width = 150;
-            lemon.Content = "Lemon";
-            Drinks.Children.Add(lemon);*/
 
             SelectDrink(new Tyrannotea());
         }
 
+        /// <summary>
+        /// Sets the size of the drink to small
+        /// </summary>
+        /// <param name="sender">References the controller</param>
+        /// <param name="args">Represents the base class for classes that contain event data</param>
         protected void OnSelectSmall(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Small);
         }
 
+        /// <summary>
+        /// Sets the size of the drink to medium
+        /// </summary>
+        /// <param name="sender">References the controller</param>
+        /// <param name="args">Represents the base class for classes that contain event data</param>
         protected void OnSelectMedium(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Medium);
         }
 
+        /// <summary>
+        /// Sets the size of the drink to large
+        /// </summary>
+        /// <param name="sender">References the controller</param>
+        /// <param name="args">Represents the base class for classes that contain event data</param>
         protected void OnSelectLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);
