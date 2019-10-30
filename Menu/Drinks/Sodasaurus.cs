@@ -50,7 +50,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Sets the flavor of the soda
         /// </summary>
-        public SodasaurusFlavor Flavor {
+        public override SodasaurusFlavor Flavor {
             get
             {
                 return flavor;

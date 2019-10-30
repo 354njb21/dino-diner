@@ -34,6 +34,8 @@ namespace DinoDiner.Menu
             {
                 sweet = value;
                 this.Size = this.Size;
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -112,6 +114,7 @@ namespace DinoDiner.Menu
                     Ingredients.Add("Cane Suagar");
                     NotifyOfPropertyChange("Calories");
                     NotifyOfPropertyChange("Description");
+                    NotifyOfPropertyChange("Special");
                 }
             }
             get

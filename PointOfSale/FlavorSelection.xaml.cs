@@ -25,87 +25,65 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
-        public SodasaurusFlavor Flavor { get; set; }
+        public Drink Drink { get; set; }
 
-        Sodasaurus diffSoda = new Sodasaurus();
+        
 
-        public FlavorSelection(Sodasaurus soda)
+        public FlavorSelection(Drink drink)
         {
             InitializeComponent();
-            diffSoda = soda;
+            Drink = drink;
         }
 
         
 
         
 
-        void DrinkSelectionPage(object sender, RoutedEventArgs e)
+        private void DrinkFlavor(SodasaurusFlavor flavor)
         {
-            NavigationService.Navigate(new DrinkSelection(diffSoda));
+            if (DataContext is Order order)
+            {
+                if (Drink != null)
+                {
+                    this.Drink.Flavor = flavor;
+                }
+            }
      
         }
 
         private void SelectVanilla(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element)
-            {
-                diffSoda.Flavor = (SodasaurusFlavor)Enum.Parse(typeof(SodasaurusFlavor), element.Tag.ToString());
-            }
-            DrinkSelectionPage(sender, e);
+            DrinkFlavor(SodasaurusFlavor.Vanilla);
         }
 
         private void SelectCola(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element)
-            {
-                diffSoda.Flavor = (SodasaurusFlavor)Enum.Parse(typeof(SodasaurusFlavor), element.Tag.ToString());
-            }
-            DrinkSelectionPage(sender, e);
+            DrinkFlavor(SodasaurusFlavor.Cola);
         }
 
         private void SelectOrange(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element)
-            {
-                diffSoda.Flavor = (SodasaurusFlavor)Enum.Parse(typeof(SodasaurusFlavor), element.Tag.ToString());
-            }
-            DrinkSelectionPage(sender, e);
+            DrinkFlavor(SodasaurusFlavor.Orange);
         }
 
         private void SelectRootBeer(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element)
-            {
-                diffSoda.Flavor = (SodasaurusFlavor)Enum.Parse(typeof(SodasaurusFlavor), element.Tag.ToString());
-            }
-            DrinkSelectionPage(sender, e);
+            DrinkFlavor(SodasaurusFlavor.RootBeer);
         }
 
         private void SelectLime(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element)
-            {
-                diffSoda.Flavor = (SodasaurusFlavor)Enum.Parse(typeof(SodasaurusFlavor), element.Tag.ToString());
-            }
-            DrinkSelectionPage(sender, e);
+            DrinkFlavor(SodasaurusFlavor.Lime);
         }
 
         private void SelectChocolate(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element)
-            {
-                diffSoda.Flavor = (SodasaurusFlavor)Enum.Parse(typeof(SodasaurusFlavor), element.Tag.ToString());
-            }
-            DrinkSelectionPage(sender, e);
+            DrinkFlavor(SodasaurusFlavor.Chocolate);
         }
 
         private void SelectCherry(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element)
-            {
-                diffSoda.Flavor = (SodasaurusFlavor)Enum.Parse(typeof(SodasaurusFlavor), element.Tag.ToString());
-            }
-            DrinkSelectionPage(sender, e);
+            DrinkFlavor(SodasaurusFlavor.Cherry);
         }
 
         private void OnDone(object sender, RoutedEventArgs e)

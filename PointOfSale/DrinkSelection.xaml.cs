@@ -127,8 +127,7 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         private void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            Sodasaurus soda = new Sodasaurus();
-            NavigationService.Navigate(new FlavorSelection(soda));
+            NavigationService.Navigate(new FlavorSelection(Drink));
         }
 
         /// <summary>
@@ -177,6 +176,8 @@ namespace PointOfSale
         {
             SelectSize(DinoDiner.Menu.Size.Large);
         }
+
+        
 
         
     }

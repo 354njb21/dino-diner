@@ -14,17 +14,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class MeteorMacAndCheese : Side, INotifyPropertyChanged
     {
-        /// <summary>
-        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special properties
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        //Helper function for noifying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        
         protected Size size;
 
         /// <summary>

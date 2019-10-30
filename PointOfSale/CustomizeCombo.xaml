@@ -18,8 +18,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Click="SelectSide" Grid.Column="0">Fryceritops(Side)</Button>
-        <Button Click="SelectDrink" Grid.Column="1">Sodasuarus(Drink)</Button>
+        <Button Name="Side" Click="SelectSide" Grid.Column="0">Fryceritops(Side)</Button>
+        <Button Name="Drink" Click="SelectDrink" Grid.Column="1">Sodasuarus(Drink)</Button>
         <StackPanel Grid.Column="2">
             <RadioButton Grid.Column="2">Small</RadioButton>
             <RadioButton Grid.Column="2">Medium</RadioButton>

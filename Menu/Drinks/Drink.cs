@@ -72,5 +72,7 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public virtual SodasaurusFlavor Flavor { get; set; }
+
     }
 }
