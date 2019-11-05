@@ -19,9 +19,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="OnHoldPeanutButter">Hold Peanut Butter</Button>
-        <Button Grid.Column="1" Click="OnHoldJelly">Hold Jelly</Button>
-        <Button Grid.Column="2" Grid.Row="2" Click="OnDone">Done</Button>
+        <Button Foreground="Brown" FontSize="20" Grid.Column="1" Grid.Row="1" Click="OnHoldPeanutButter">Hold Peanut Butter</Button>
+        <Button Foreground="Purple" FontSize="30" Grid.Column="1" Click="OnHoldJelly">Hold Jelly</Button>
+        <Button Foreground="Red" FontSize="30" Grid.Column="1" Grid.Row="2" Click="OnDone">Done</Button>
+
+        
         
     </Grid>
 </Page>

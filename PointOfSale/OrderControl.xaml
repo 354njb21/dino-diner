@@ -26,19 +26,25 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
+                            
 
-                            <TextBlock  Name="Cost" Text="{Binding Path=Description}"/>
+                            <TextBlock  Name="Description" Text="{Binding Path=Description}"/>
                             <Button Click="OnRemoveItem"  Background="Red" Foreground="White" Grid.Column="1">x</Button>
+                            
                         </Grid>
-                        
+                        <ListBox Name="Special" ItemsSource="{Binding Path=Special}" BorderBrush="Red"/>
                 </StackPanel>
-            </DataTemplate>
+                    
+                </DataTemplate>
             
         </ListBox.ItemTemplate>
         </ListBox>
 
+        
+
         <StackPanel Grid.Row="2">
             <TextBlock Height="70" Background="White" Grid.Row="2" Width="200" Text= "{Binding Path=SubtotalCost}"></TextBlock>
+            
             
         </StackPanel>
 

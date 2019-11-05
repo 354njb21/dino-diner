@@ -50,6 +50,7 @@ namespace DinoDiner.Menu
         {
             get
             {
+                NotifyOfPropertyChange("Price");
                 return Entree.Price + Side.Price + Drink.Price - 0.25;
             }
         }
@@ -61,6 +62,7 @@ namespace DinoDiner.Menu
         {
             get
             {
+                NotifyOfPropertyChange("Calories");
                 return Entree.Calories + Side.Calories + Drink.Calories;
             }
         }
@@ -76,6 +78,10 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
             }
         }
 
@@ -102,6 +108,7 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             this.Entree = entree;
+            NotifyOfPropertyChange("Entree");
         }
 
         public override string ToString()
@@ -121,6 +128,7 @@ namespace DinoDiner.Menu
         {
             get
             {
+                NotifyOfPropertyChange("Special");
                 List<string> ingredients = new List<string>();
                 ingredients.AddRange(Entree.Special);
                 ingredients.Add(Side.Description);

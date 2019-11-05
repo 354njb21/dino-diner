@@ -59,12 +59,21 @@ namespace PointOfSale
 
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
+            CustomizeCombo combo = new CustomizeCombo();
             SelectSide(new Fryceritops());
+            if(NavigationService.CanGoBack == true && NavigationService.Content == new CustomizeCombo())
+            {
+                combo.Side.Content = "Fryceritops";
+            }
         }
 
         public void AddTriceritots(object sender, RoutedEventArgs args)
         {
+            CustomizeCombo combo = new CustomizeCombo();
             SelectSide(new Triceritots());
+           
+            combo.Side.Content = "Triceritots";
+            
         }
 
         public void AddMeteorMacAndCheese(object sender, RoutedEventArgs args)

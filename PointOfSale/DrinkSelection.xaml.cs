@@ -81,7 +81,7 @@ namespace PointOfSale
             Flavor.Visibility = Visibility.Hidden;
             Lemon.Visibility = Visibility.Visible;
 
-
+            
            
             SelectDrink(new Water());
 
@@ -177,7 +177,20 @@ namespace PointOfSale
             SelectSize(DinoDiner.Menu.Size.Large);
         }
 
-        
+        private void OnSweetTea(object sender, RoutedEventArgs args)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Sweet = true;
+            SelectDrink(tea);
+
+        }
+
+        private void OnDecafCoffee(object sender, RoutedEventArgs args)
+        {
+            JurassicJava java = new JurassicJava();
+            java.Decaf = true;
+            SelectDrink(java);
+        }
 
         
     }

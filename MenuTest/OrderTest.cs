@@ -14,7 +14,7 @@ namespace MenuTest
             Order order = new Order();
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             pbj.Price = -30;
-            order.Items.Add(pbj);
+            order.Add(pbj);
             Assert.Equal(0, order.SubtotalCost);
         }
 

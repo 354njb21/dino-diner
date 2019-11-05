@@ -36,15 +36,6 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        void OnAddPrehistoricPBJ(object sender, NavigationEventArgs args)
-        {
-            if(DataContext is Order order)
-            {
-                PrehistoricPBJ pbj = new PrehistoricPBJ();
-                order.Add(pbj);
-                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
-            }
-        }
 
         public EntreeSelection(Entree entree)
         {
@@ -74,7 +65,9 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         public void AddVelociWrap(object sender, RoutedEventArgs args)
         {
+            VelociWrap wrap = new VelociWrap();
             SelectEntree(new VelociWrap());
+            NavigationService.Navigate(new CustomizeVelociWrap(wrap));
         }
 
         /// <summary>
@@ -84,7 +77,9 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         public void AddPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
             SelectEntree(new PrehistoricPBJ());
+            NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
         }
 
         /// <summary>
@@ -94,7 +89,9 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         public void AddSteakBurger(object sender, RoutedEventArgs args)
         {
+            SteakosaurusBurger steak = new SteakosaurusBurger();
             SelectEntree(new SteakosaurusBurger());
+            NavigationService.Navigate(new CustomizeSteakBurger(steak));
         }
 
         /// <summary>
@@ -104,7 +101,9 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         public void AddBrontowurst(object sender, RoutedEventArgs args)
         {
+            Brontowurst bronto = new Brontowurst(); 
             SelectEntree(new Brontowurst());
+            NavigationService.Navigate(new CustomizeBrontowurst(bronto));
         }
 
         /// <summary>
@@ -114,7 +113,9 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         public void AddDinoNuggets(object sender, RoutedEventArgs args)
         {
+            DinoNuggets nugs = new DinoNuggets();
             SelectEntree(new DinoNuggets());
+            NavigationService.Navigate(new CustomizeDinoNuggets(nugs));
         }
 
         /// <summary>
@@ -134,7 +135,9 @@ namespace PointOfSale
         /// <param name="args">Represents the base class for classes that contain event data</param>
         public void AddTrexBurger(object sender, RoutedEventArgs args)
         {
+            TRexKingBurger trex = new TRexKingBurger();
             SelectEntree(new TRexKingBurger());
+            NavigationService.Navigate(new CustomizeTrexBurger(trex));
         }
     }
 }

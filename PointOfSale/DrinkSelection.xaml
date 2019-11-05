@@ -71,8 +71,8 @@
 
         <Button Name="Lemon" Content="Lemon" Tag="Lemon" Visibility="Hidden" Width="100" Height="75"/>
         <Button Click="SelectFlavor"  Name="Flavor" Content="Flavor" Visibility="Hidden" Width="100" Height="75"/>
-        <Button Name="Sweet" Content="Sweet" Tag="Sweet" Visibility="Hidden" Width="100" Height="75"/>
-        <Button Name="Decaf" Content="Decaf" Tag="Decaf" Visibility="Hidden" Width="100" Height="75"/>
+        <Button Click="OnSweetTea" Name="Sweet" Content="Sweet" Tag="Sweet" Visibility="Hidden" Width="100" Height="75"/>
+        <Button Click="OnDecafCoffee" Name="Decaf" Content="Decaf" Tag="Decaf" Visibility="Hidden" Width="100" Height="75"/>
     </WrapPanel>
     
     

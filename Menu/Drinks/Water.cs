@@ -71,6 +71,8 @@ namespace DinoDiner.Menu
                 Price = .10;
                 Calories = 0;
                 NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
             }
             get
             {

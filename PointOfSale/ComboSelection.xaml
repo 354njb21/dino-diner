@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="125"></Setter>
             </Style>
         </WrapPanel.Resources>
-        <Button Click="Custom">
+        <Button Click="CustomBronto">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-01.png"/>
             </Button.Background>
@@ -25,7 +25,7 @@
                 </TextBlock>
             </DockPanel>
             </Button>
-        <Button Click="Custom">
+        <Button Click="CustomNuggets">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-02.png"/>
             </Button.Background>
@@ -36,7 +36,7 @@
             </DockPanel>
 
         </Button>
-        <Button Click="Custom">
+        <Button Click="CustomSteakBurger">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-05.png"/>
             </Button.Background>
@@ -46,7 +46,7 @@
                 </TextBlock>
             </DockPanel>
             </Button>
-        <Button Click="Custom">
+        <Button Click="CustomTrex">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-06.png"/>
             </Button.Background>
@@ -56,7 +56,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="Custom">
+        <Button Click="CustomWings">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-04.png"/>
             </Button.Background>
@@ -66,7 +66,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="Custom">
+        <Button Click="CustomPBJ">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-03.png"/>
             </Button.Background>
@@ -76,7 +76,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button Click="Custom">
+        <Button Click="CustomWrap">
             <Button.Background>
                 <ImageBrush ImageSource="Images/DinoDiner-07.png"/>
             </Button.Background>

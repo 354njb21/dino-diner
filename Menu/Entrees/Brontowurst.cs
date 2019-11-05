@@ -48,8 +48,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
-            NotifyOfPropertyChange("Special");
             NotifyOfPropertyChange("Ingredients");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
