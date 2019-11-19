@@ -40,7 +40,7 @@ namespace DinoDiner.Menu
 
                 for (int i = 0; i < counter; i++)
                 {
-                    ingredients.Add("Chicken Nugget");
+                    ingredients.Add("Chicken Nugget, ");
                 }
                 
                 

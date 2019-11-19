@@ -7,12 +7,59 @@
 <h1>Menu</h1>
 
 <h2>Combos</h2>
-<div class="menu-item"></div>
+<div class="menu-item">
+    @foreach (DinoDiner.Menu.CretaceousCombo combo in Model.Menu.AvailableCombos)
+    {
+        <h3>@combo.Description</h3>
+        <h4>Price: $@combo.Price</h4>
+        <h4>Calories: @combo.Calories</h4>
+        <h4>Ingredients:</h4>
+        @foreach (var item in combo.Ingredients)
+        {
+            @item
+        }
+
+    }
+</div>
 <h2>Entrees</h2>
 <div class="menu-item">
-    
+    @foreach (DinoDiner.Menu.Entree entree in Model.Menu.AvailableEntrees)
+    {
+    <h3>@entree.Description</h3>
+    <h4>Price: $@entree.Price</h4>
+    <h4>Calories: @entree.Calories</h4>
+    <h4>Ingredients: </h4>
+    @foreach(var item in entree.Ingredients)
+    {
+        @item
+    }
+    }
 </div>
 <h2>Sides</h2>
-<div class="menu-item"></div>
+<div class="menu-item">
+    @foreach(DinoDiner.Menu.Side side in Model.Menu.AvailableSides)
+    {
+    <h3>@side.Description</h3>
+    <h4>Price: $@side.Price</h4>
+    <h4>Calories: @side.Calories</h4>
+    <h4>Ingredients: </h4>
+    @foreach(var item in side.Ingredients)
+    {
+        @item
+    }
+    }
+</div>
 <h2>Drinks</h2>
-<div class="menu-item"></div>
+<div class="menu-item">
+    @foreach(DinoDiner.Menu.Drink drinks in Model.Menu.AvailableDrinks)
+    {
+    <h3>@drinks.Description</h3>
+    <h4>Price: $@drinks.Price</h4>
+    <h4>Calories: @drinks.Calories</h4>
+    <h4>Ingredients: </h4>
+    @foreach(var item in drinks.Ingredients)
+    {
+        @item
+    }
+    }
+</div>

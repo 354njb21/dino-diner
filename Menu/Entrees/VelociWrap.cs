@@ -36,10 +36,10 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string> { "Chicken Breast" };
-                ingredients.Add("Flour Tortilla");
-                if (lettuce) ingredients.Add("Romaine Lettuce");
-                if (dressing) ingredients.Add("Ceasar Dressing");
+                List<string> ingredients = new List<string> { "Chicken Breast, " };
+                ingredients.Add("Flour Tortilla, ");
+                if (lettuce) ingredients.Add("Romaine Lettuce, ");
+                if (dressing) ingredients.Add("Ceasar Dressing, ");
                 if (cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
             }
