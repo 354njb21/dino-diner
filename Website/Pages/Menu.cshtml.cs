@@ -27,7 +27,7 @@ namespace Website.Pages
         public string search { get; set; }
 
         [BindProperty]
-        public List<string> Category { get; set; } = new List<string>();
+        public List<string> menuCategory { get; set; } = new List<string>();
 
         [BindProperty]
         public float? minPrice { get; set; }
@@ -58,13 +58,17 @@ namespace Website.Pages
                 Combos = Menu.SearchCombos(Combos, search);
             }
 
-            if (Category.Count != 0)
+            if (menuCategory.Count != 0)
             {
+                Entrees = new List<Entree>();
+                Drinks = new List<Drink>();
+                Sides = new List<Side>();
+                Combos = new List<CretaceousCombo>();
                 
-                Entrees = Menu.FilterByMenuCategoryEntree(Category);
-                Drinks = Menu.FilterByMenuCategoryDrink(Category);
-                Sides = Menu.FilterByMenuCategorySide(Category);
-                Combos = Menu.FilterByMenuCategoryCombos(Category);
+                Entrees = Menu.FilterByMenuCategoryEntree(menuCategory);
+                Drinks = Menu.FilterByMenuCategoryDrink(menuCategory);
+                Sides = Menu.FilterByMenuCategorySide(menuCategory);
+                Combos = Menu.FilterByMenuCategoryCombos(menuCategory);
             }
 
             if(minPrice != null)
