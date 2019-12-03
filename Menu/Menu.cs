@@ -16,14 +16,16 @@ namespace DinoDiner.Menu
     public class Menu
     {
 
+        public List<string> PossibleIngredients;
+
         /// <summary>
         /// List of all the available menu items
         /// </summary> 
-        public List<IOrderItem> AvailableMenuItems
+        public List<IMenuItem> AvailableMenuItems
         {
             get
             {
-                List<IOrderItem> menuItems = new List<IOrderItem>();
+                List<IMenuItem> menuItems = new List<IMenuItem>();
 
                 JurassicJava java = new JurassicJava();
                 Sodasaurus soda = new Sodasaurus();

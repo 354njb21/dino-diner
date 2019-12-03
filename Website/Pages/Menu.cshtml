@@ -67,26 +67,26 @@
 
         <form method="post">
 
-            <input type="text" name="search" id="search" value="@Model.search"/>
+            <input type="text" name="search" id="search" value="@Model.search" />
             <input type="submit" value="Search & Filter" />
-            
+
 
             <h3>Menu Category</h3>
 
             <label>
-                <input type="checkbox" name="menuCategory" value="Combo" checked="@Model.Category.Contains("Combo")"/>
+                <input type="checkbox" name="menuCategory" value="Combo" checked="@Model.Category.Contains("Combo")" />
                 Combo
             </label>
             <label>
-                <input type="checkbox" name="menuCategory" value="Entree" checked="@Model.Category.Contains("Entree")"/>
+                <input type="checkbox" name="menuCategory" value="Entree" checked="@Model.Category.Contains("Entree")" />
                 Entree
             </label>
             <label>
-                <input type="checkbox" name="menuCategory" value="Side" checked="@Model.Category.Contains("Side")"/>
+                <input type="checkbox" name="menuCategory" value="Side" checked="@Model.Category.Contains("Side")" />
                 Side
             </label>
             <label>
-                <input type="checkbox" name="menuCategory" value="Drink" checked="@Model.Category.Contains("Drink")"/>
+                <input type="checkbox" name="menuCategory" value="Drink" checked="@Model.Category.Contains("Drink")" />
                 Drink
             </label>
             <h3>Price</h3>
@@ -95,15 +95,80 @@
                 Min
             </label>
             <label>
-                <input type="number" step="0.1" name="maximumPrice" id="maximum-price" value="@Model.maxPrice"/>
+                <input type="number" step="0.1" name="maximumPrice" id="maximum-price" value="@Model.maxPrice" />
                 Max
             </label>
 
             <h3>Excluding Ingredients</h3>
 
-
-
-
+            <label>
+                <input type="checkbox" name="bread" value="Bread" />
+                Bread
+            </label>
+            <label>
+                <input type="checkbox" name="chicken" value="Chicken" />
+                Chicken
+            </label>
+            <label>
+                <input type="checkbox" name="peppers" value="Peppers" />
+                Peppers
+            </label>
+            <label>
+                <input type="checkbox" name="onion" value="Onion" />
+                Onion
+            </label>
+            <label>
+                <input type="checkbox" name="lettuce" value="Lettuce" />
+                Lettuce
+            </label>
+            <label>
+                <input type="checkbox" name="tomato" value="Tomato" />
+                Tomato
+            </label>
+            <label>
+                <input type="checkbox" name="pickle" value="Pickle" />
+                Pickle
+            </label>
+            <label>
+                <input type="checkbox" name="mayo" value="Mayo" />
+                Mayo
+            </label>
+            <label>
+                <input type="checkbox" name="mustard" value="Mustard" />
+                Mustard
+            </label>
+            <label>
+                <input type="checkbox" name="ketchup" value="Ketchup" />
+                Ketchup
+            </label>
+            <label>
+                <input type="checkbox" name="bun" value="Whole Wheat Bun" />
+                Whole Wheat Bun
+            </label>
+            <label>
+                <input type="checkbox" name="pb" value="Peanut Butter" />
+                Peanut Butter
+            </label>
+            <label>
+                <input type="checkbox" name="jelly" value="Jelly" />
+                Jelly
+            </label>
+            <label>
+                <input type="checkbox" name="romaine" value="Romaine Lettuce" />
+                Romaine Lettuce
+            </label>
+            <label>
+                <input type="checkbox" name="dressing" value="Caesar Dressing" />
+                Caesar Dressing
+            </label>
+            <label>
+                <input type="checkbox" name="cheese" value="Parmesan Cheese" />
+                Parmesan Cheese
+            </label>
+            <label>
+                <input type="checkbox" name="bread" value="Bread" />
+                Bread
+            </label>
         </form>
 
     </div>
