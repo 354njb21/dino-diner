@@ -36,14 +36,8 @@ namespace DinoDiner.Menu
             
         get
             {
-                List<string> ingredients = new List<string> ();
+                List<string> ingredients = new List<string>() { "Chicken, Breading" };
 
-                for (int i = 0; i < counter; i++)
-                {
-                    ingredients.Add("Chicken Nugget, ");
-                }
-                
-                
                 return ingredients;
             }
         }
@@ -60,7 +54,6 @@ namespace DinoDiner.Menu
                 counter++;
             }
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
             NotifyOfPropertyChange("Calories");
             NotifyOfPropertyChange("Price");
         }

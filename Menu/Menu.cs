@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -18,11 +19,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// List of all the available menu items
         /// </summary> 
-        public List<IMenuItem> AvailableMenuItems
+        public List<IOrderItem> AvailableMenuItems
         {
             get
             {
-                List<IMenuItem> menuItems = new List<IMenuItem>();
+                List<IOrderItem> menuItems = new List<IOrderItem>();
 
                 JurassicJava java = new JurassicJava();
                 Sodasaurus soda = new Sodasaurus();
@@ -184,6 +185,182 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Brontowurst\n Dino-Nuggets\n Prehistoric PB&J\n Pterodactyl Wings\n SteakosaurusBurger\n T-Rex King Burger\n Veloci-Wrap\n  Fryceritops\n Meteor Mac and Cheese\n Mezzorella Sticks\n Triceritots\n Decaf Jurassic Java\n Jurassic Java\n Cherry Sodasaurus\n Chocolate Sodasaurus\n Cola Sodasaurus\n Vanilla Sodasaurus\n Lime Sodasaurus\n RootBeer Sodasaurus\n Orange Sodasaurus\n Sweet Tyrannotea\n Tyrannotea\n Water";
+        }
+
+        public List<Entree> SearchEntrees(List<Entree> entrees, string keyword)
+        {
+            List<Entree> results = new List<Entree>();
+
+            foreach(Entree entree in entrees )
+            {
+                if (entree.Description.Contains(keyword))
+                {
+                    results.Add(entree);
+                }
+            }
+            return results;
+        }
+
+        public List<Drink> SearchDrinks(List<Drink> drinks, string keyword)
+        {
+            List<Drink> results = new List<Drink>();
+
+            foreach (Drink drink in drinks)
+            {
+                if (drink.Description.Contains(keyword))
+                {
+                    results.Add(drink);
+                }
+            }
+            return results;
+        }
+
+        public List<Side> SearchSides(List<Side> sides, string keyword)
+        {
+            List<Side> results = new List<Side>();
+
+            foreach (Side side in sides)
+            {
+                if (side.Description.Contains(keyword))
+                {
+                    results.Add(side);
+                }
+            }
+            return results;
+        }
+
+        public List<CretaceousCombo> SearchCombos(List<CretaceousCombo> combos, string keyword)
+        {
+            List<CretaceousCombo> results = new List<CretaceousCombo>();
+
+            foreach (CretaceousCombo combo in combos)
+            {
+                if (combo.Description.Contains(keyword))
+                {
+                    results.Add(combo);
+                }
+            }
+            return results;
+        }
+
+        public List<Entree> FilterByMenuCategoryEntree(List<string> category)
+        {
+            List<Entree> results = new List<Entree>();
+
+            foreach(string item in category)
+            {
+                if (item == "Entree")
+                {
+                    results = AvailableEntrees;
+                }
+            }
+            
+            return results;
+        }
+
+        public List<Drink> FilterByMenuCategoryDrink(List<string> category)
+        {
+            List<Drink> results = new List<Drink>();
+
+            foreach (string item in category)
+            {
+                if (item == "Drink")
+                {
+                    results = AvailableDrinks;
+                }
+            }
+
+            return results;
+        }
+
+        public List<Side> FilterByMenuCategorySide(List<string> category)
+        {
+            List<Side> results = new List<Side>();
+
+            foreach (string item in category)
+            {
+                if (item == "Side")
+                {
+                    results = AvailableSides;
+                }
+            }
+
+            return results;
+        }
+
+        public List<CretaceousCombo> FilterByMenuCategoryCombos(List<string> category)
+        {
+            List<CretaceousCombo> results = new List<CretaceousCombo>();
+
+            foreach (string item in category)
+            {
+                if (item == "Entree")
+                {
+                    results = AvailableCombos;
+                }
+            }
+
+            return results;
+        }
+
+        public List<Entree> FilterByMinPriceEntree(List<Entree> entrees, float minPrice)
+        {
+            List<Entree> results = new List<Entree>();
+
+            foreach(Entree entree in entrees)
+            {
+                if (minPrice <= entree.Price)
+                {
+                    results.Add(entree);
+                }
+                
+            }
+            return results;
+        }
+
+        public List<Side> FilterByMinPriceSide(List<Side> sides, float minPrice)
+        {
+            List<Side> results = new List<Side>();
+
+            foreach (Side side in sides)
+            {
+                if (minPrice <= side.Price)
+                {
+                    results.Add(side);
+                }
+
+            }
+            return results;
+        }
+
+        public List<Drink> FilterByMinPriceDrink(List<Drink> drinks, float minPrice)
+        {
+            List<Drink> results = new List<Drink>();
+
+            foreach (Drink drink in drinks)
+            {
+                if (minPrice <= drink.Price)
+                {
+                    results.Add(drink);
+                }
+
+            }
+            return results;
+        }
+
+        public List<CretaceousCombo> FilterByMinPriceCombo(List<CretaceousCombo> combos, float minPrice)
+        {
+            List<CretaceousCombo> results = new List<CretaceousCombo>();
+
+            foreach (CretaceousCombo combo in combos)
+            {
+                if (minPrice <= combo.Price)
+                {
+                    results.Add(combo);
+                }
+
+            }
+            return results;
         }
     }
 }

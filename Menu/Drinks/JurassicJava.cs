@@ -49,7 +49,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return new List<string>() { "Water, ", "Coffee" };
+                return new List<string>() { "Water", "Coffee" };
             }
         }
 

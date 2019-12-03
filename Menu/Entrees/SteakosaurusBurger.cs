@@ -41,13 +41,13 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string> { "Steakburger Pattie, " };
-                if (pickle) ingredients.Add("Pickle, ");
-                if (mustard) ingredients.Add("Mustard, ");
-                if (ketchup) ingredients.Add("Ketchup, ");
-                if (bun) ingredients.Add("Whole Wheat Bun, ");
-                if (tomato) ingredients.Add("Tomato, ");
-                if (onion) ingredients.Add("Onion, ");
+                List<string> ingredients = new List<string> { "Steakburger Pattie" };
+                if (pickle) ingredients.Add("Pickle");
+                if (mustard) ingredients.Add("Mustard");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (tomato) ingredients.Add("Tomato");
+                if (onion) ingredients.Add("Onion");
                 if (lettuce) ingredients.Add("Lettuce");
                 return ingredients;
             }

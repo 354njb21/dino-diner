@@ -35,9 +35,9 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (onions) ingredients.Add(", Onion");
-                if (peppers) ingredients.Add(", Peppers");
-                if (bun) ingredients.Add(", Whole Wheat Bun");
+                if (onions) ingredients.Add("Onion");
+                if (peppers) ingredients.Add("Peppers");
+                if (bun) ingredients.Add("Whole Wheat Bun");
                 return ingredients;
             }
         }

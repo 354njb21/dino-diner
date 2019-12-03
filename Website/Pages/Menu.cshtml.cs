@@ -14,11 +14,66 @@ namespace Website.Pages
         /// Public instance of the Menu class
         /// </summary>
         public Menu Menu { get; } = new Menu();
-        
+
+        public List<Entree> Entrees;
+
+        public List<Side> Sides;
+
+        public List<Drink> Drinks;
+
+        public List<CretaceousCombo> Combos;
+
+        [BindProperty]
+        public string search { get; set; }
+
+        [BindProperty]
+        public List<string> Category { get; set; } = new List<string>();
+
+        [BindProperty]
+        public float? minPrice { get; set; }
+
+        [BindProperty]
+        public float? maxPrice { get; set; }
 
         public void OnGet()
         {
-            
+            Entrees = Menu.AvailableEntrees;
+            Sides = Menu.AvailableSides;
+            Drinks = Menu.AvailableDrinks;
+            Combos = Menu.AvailableCombos;
+        }
+
+        public void OnPost()
+        {
+            Entrees = Menu.AvailableEntrees;
+            Sides = Menu.AvailableSides;
+            Drinks = Menu.AvailableDrinks;
+            Combos = Menu.AvailableCombos;
+
+            if (search != null)
+            {
+                Entrees = Menu.SearchEntrees(Entrees, search);
+                Drinks = Menu.SearchDrinks(Drinks, search);
+                Sides = Menu.SearchSides(Sides, search);
+                Combos = Menu.SearchCombos(Combos, search);
+            }
+
+            if (Category.Count != 0)
+            {
+                
+                Entrees = Menu.FilterByMenuCategoryEntree(Category);
+                Drinks = Menu.FilterByMenuCategoryDrink(Category);
+                Sides = Menu.FilterByMenuCategorySide(Category);
+                Combos = Menu.FilterByMenuCategoryCombos(Category);
+            }
+
+            if(minPrice != null)
+            {
+                Entrees = Menu.FilterByMinPriceEntree(Entrees, (float)minPrice);
+                Drinks = Menu.FilterByMinPriceDrink(Drinks, (float)minPrice);
+                Sides = Menu.FilterByMinPriceSide(Sides, (float)minPrice);
+                Combos = Menu.FilterByMinPriceCombo(Combos, (float)minPrice);
+            }
         }
     }
 }

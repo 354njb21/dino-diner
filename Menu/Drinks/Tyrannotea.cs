@@ -68,8 +68,8 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Water, ", "Tea, " };
-                if (Lemon) ingredients.Add("Lemon, ");
+                List<string> ingredients = new List<string>() { "Water", "Tea" };
+                if (Lemon) ingredients.Add("Lemon");
                 if (Sweet) ingredients.Add("Cane Sugar");
                 return ingredients;
             }
