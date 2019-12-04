@@ -30,10 +30,12 @@ namespace Website.Pages
         public List<string> menuCategory { get; set; } = new List<string>();
 
         [BindProperty]
-        public float? minPrice { get; set; }
+        public double minimumPrice { get; set; }
 
         [BindProperty]
-        public float? maxPrice { get; set; }
+        public double maximumPrice { get; set; }
+
+        public HashSet<string> Ingredients { get; set; } = new HashSet<string>();
 
         public void OnGet()
         {
@@ -71,13 +73,27 @@ namespace Website.Pages
                 Combos = Menu.FilterByMenuCategoryCombos(menuCategory);
             }
 
-            if(minPrice != null)
+            if(minimumPrice != 0 && minimumPrice > 0)
             {
-                Entrees = Menu.FilterByMinPriceEntree(Entrees, (float)minPrice);
-                Drinks = Menu.FilterByMinPriceDrink(Drinks, (float)minPrice);
-                Sides = Menu.FilterByMinPriceSide(Sides, (float)minPrice);
-                Combos = Menu.FilterByMinPriceCombo(Combos, (float)minPrice);
+                
+
+                Entrees = Menu.FilterByMinPriceEntree(Entrees, minimumPrice);
+                Drinks = Menu.FilterByMinPriceDrink(Drinks, minimumPrice);
+                Sides = Menu.FilterByMinPriceSide(Sides, minimumPrice);
+                Combos = Menu.FilterByMinPriceCombo(Combos, minimumPrice);
             }
+
+            if (maximumPrice != 0 && maximumPrice > 0)
+            {
+
+
+                Entrees = Menu.FilterByMaxPriceEntree(Entrees, maximumPrice);
+                Drinks = Menu.FilterByMaxPriceDrink(Drinks, maximumPrice);
+                Sides = Menu.FilterByMaxPriceSide(Sides, maximumPrice);
+                Combos = Menu.FilterByMaxPriceCombo(Combos, maximumPrice);
+            }
+
+            Ingredients = Menu.PossibleIngredients;
         }
     }
 }

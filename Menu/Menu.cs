@@ -16,7 +16,44 @@ namespace DinoDiner.Menu
     public class Menu
     {
 
-        public List<string> PossibleIngredients;
+        public HashSet<string> PossibleIngredients { get; set; }
+        
+        public void UniqueIngredients()
+        {
+            foreach(Entree entree in AvailableEntrees)
+            {
+                foreach(string ingredient in entree.Ingredients)
+                if(PossibleIngredients.Contains(ingredient) == false)
+                {
+                   PossibleIngredients.Add(ingredient);
+                }
+
+                
+            }
+
+            foreach (Side side in AvailableSides)
+            {
+                foreach (string ingredient in side.Ingredients)
+                    if (PossibleIngredients.Contains(ingredient) == false)
+                    {
+                        PossibleIngredients.Add(ingredient);
+                    }
+
+
+            }
+
+            foreach (Drink drink in AvailableDrinks)
+            {
+                foreach (string ingredient in drink.Ingredients)
+                    if (PossibleIngredients.Contains(ingredient) == false)
+                    {
+                        PossibleIngredients.Add(ingredient);
+                    }
+
+
+            }
+
+        }
 
         /// <summary>
         /// List of all the available menu items
@@ -296,7 +333,7 @@ namespace DinoDiner.Menu
 
             foreach (string item in category)
             {
-                if (item == "Entree")
+                if (item == "Combo")
                 {
                     results = AvailableCombos;
                 }
@@ -305,7 +342,7 @@ namespace DinoDiner.Menu
             return results;
         }
 
-        public List<Entree> FilterByMinPriceEntree(List<Entree> entrees, float minPrice)
+        public List<Entree> FilterByMinPriceEntree(List<Entree> entrees, double minPrice)
         {
             List<Entree> results = new List<Entree>();
 
@@ -320,7 +357,7 @@ namespace DinoDiner.Menu
             return results;
         }
 
-        public List<Side> FilterByMinPriceSide(List<Side> sides, float minPrice)
+        public List<Side> FilterByMinPriceSide(List<Side> sides, double minPrice)
         {
             List<Side> results = new List<Side>();
 
@@ -335,7 +372,7 @@ namespace DinoDiner.Menu
             return results;
         }
 
-        public List<Drink> FilterByMinPriceDrink(List<Drink> drinks, float minPrice)
+        public List<Drink> FilterByMinPriceDrink(List<Drink> drinks, double minPrice)
         {
             List<Drink> results = new List<Drink>();
 
@@ -350,7 +387,7 @@ namespace DinoDiner.Menu
             return results;
         }
 
-        public List<CretaceousCombo> FilterByMinPriceCombo(List<CretaceousCombo> combos, float minPrice)
+        public List<CretaceousCombo> FilterByMinPriceCombo(List<CretaceousCombo> combos, double minPrice)
         {
             List<CretaceousCombo> results = new List<CretaceousCombo>();
 
@@ -364,5 +401,67 @@ namespace DinoDiner.Menu
             }
             return results;
         }
+
+        public List<Entree> FilterByMaxPriceEntree(List<Entree> entrees, double minPrice)
+        {
+            List<Entree> results = new List<Entree>();
+
+            foreach (Entree entree in entrees)
+            {
+                if (minPrice >= entree.Price)
+                {
+                    results.Add(entree);
+                }
+
+            }
+            return results;
+        }
+
+        public List<Side> FilterByMaxPriceSide(List<Side> sides, double minPrice)
+        {
+            List<Side> results = new List<Side>();
+
+            foreach (Side side in sides)
+            {
+                if (minPrice >= side.Price)
+                {
+                    results.Add(side);
+                }
+
+            }
+            return results;
+        }
+
+        public List<Drink> FilterByMaxPriceDrink(List<Drink> drinks, double minPrice)
+        {
+            List<Drink> results = new List<Drink>();
+
+            foreach (Drink drink in drinks)
+            {
+                if (minPrice >= drink.Price)
+                {
+                    results.Add(drink);
+                }
+
+            }
+            return results;
+        }
+
+        public List<CretaceousCombo> FilterByMaxPriceCombo(List<CretaceousCombo> combos, double minPrice)
+        {
+            List<CretaceousCombo> results = new List<CretaceousCombo>();
+
+            foreach (CretaceousCombo combo in combos)
+            {
+                if (minPrice >= combo.Price)
+                {
+                    results.Add(combo);
+                }
+
+            }
+            return results;
+        }
+
+        
     }
 }
