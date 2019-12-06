@@ -35,6 +35,7 @@ namespace Website.Pages
         [BindProperty]
         public double maximumPrice { get; set; }
 
+        [BindProperty]
         public HashSet<string> Ingredients { get; set; } = new HashSet<string>();
 
         public void OnGet()
@@ -93,7 +94,7 @@ namespace Website.Pages
                 Combos = Menu.FilterByMaxPriceCombo(Combos, maximumPrice);
             }
 
-            Ingredients = Menu.PossibleIngredients;
+            
         }
     }
 }

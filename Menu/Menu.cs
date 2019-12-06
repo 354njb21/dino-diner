@@ -16,44 +16,47 @@ namespace DinoDiner.Menu
     public class Menu
     {
 
-        public HashSet<string> PossibleIngredients { get; set; }
-        
-        public void UniqueIngredients()
+        public HashSet<string> PossibleIngredients
         {
-            foreach(Entree entree in AvailableEntrees)
+            get
             {
-                foreach(string ingredient in entree.Ingredients)
-                if(PossibleIngredients.Contains(ingredient) == false)
+                HashSet<string> Ingredients = new HashSet<string>();
+                foreach (Entree entree in AvailableEntrees)
                 {
-                   PossibleIngredients.Add(ingredient);
+                    foreach (string ingredient in entree.Ingredients)
+                        if (Ingredients.Contains(ingredient) == false)
+                        {
+                            Ingredients.Add(ingredient);
+                        }
+
+
                 }
 
-                
+                foreach (Side side in AvailableSides)
+                {
+                    foreach (string ingredient in side.Ingredients)
+                        if (Ingredients.Contains(ingredient) == false)
+                        {
+                            Ingredients.Add(ingredient);
+                        }
+
+
+                }
+
+                foreach (Drink drink in AvailableDrinks)
+                {
+                    foreach (string ingredient in drink.Ingredients)
+                        if (Ingredients.Contains(ingredient) == false)
+                        {
+                            Ingredients.Add(ingredient);
+                        }
+                }
+
+                return Ingredients;
             }
-
-            foreach (Side side in AvailableSides)
-            {
-                foreach (string ingredient in side.Ingredients)
-                    if (PossibleIngredients.Contains(ingredient) == false)
-                    {
-                        PossibleIngredients.Add(ingredient);
-                    }
-
-
-            }
-
-            foreach (Drink drink in AvailableDrinks)
-            {
-                foreach (string ingredient in drink.Ingredients)
-                    if (PossibleIngredients.Contains(ingredient) == false)
-                    {
-                        PossibleIngredients.Add(ingredient);
-                    }
-
-
-            }
-
         }
+        
+        
 
         /// <summary>
         /// List of all the available menu items
@@ -274,7 +277,7 @@ namespace DinoDiner.Menu
 
             foreach (CretaceousCombo combo in combos)
             {
-                if (combo.Description.Contains(keyword))
+                if (combo.Description.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     results.Add(combo);
                 }
