@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using DinoDiner.Menu;
+using System.Linq;
 
 namespace Website.Pages
 {
@@ -15,13 +16,13 @@ namespace Website.Pages
         /// </summary>
         public Menu Menu { get; } = new Menu();
 
-        public List<Entree> Entrees;
+        public IEnumerable<Entree> Entrees;
 
-        public List<Side> Sides;
+        public IEnumerable<Side> Sides;
 
-        public List<Drink> Drinks;
+        public IEnumerable<Drink> Drinks;
 
-        public List<CretaceousCombo> Combos;
+        public IEnumerable<CretaceousCombo> Combos;
 
         [BindProperty]
         public string search { get; set; }
@@ -55,10 +56,10 @@ namespace Website.Pages
 
             if (search != null)
             {
-                Entrees = Menu.SearchEntrees(Entrees, search);
-                Drinks = Menu.SearchDrinks(Drinks, search);
-                Sides = Menu.SearchSides(Sides, search);
-                Combos = Menu.SearchCombos(Combos, search);
+                Entrees = Entrees.Where(entree => entree.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                Drinks = Drinks.Where(drinks => drinks.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                Sides = Sides.Where(sides => sides.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                Combos = Combos.Where(combos => combos.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
             }
 
             if (menuCategory.Count != 0)
@@ -67,8 +68,8 @@ namespace Website.Pages
                 Drinks = new List<Drink>();
                 Sides = new List<Side>();
                 Combos = new List<CretaceousCombo>();
-                
-                Entrees = Menu.FilterByMenuCategoryEntree(menuCategory);
+
+                Entrees = Menu.AvailableEntrees.OfType(Entree);
                 Drinks = Menu.FilterByMenuCategoryDrink(menuCategory);
                 Sides = Menu.FilterByMenuCategorySide(menuCategory);
                 Combos = Menu.FilterByMenuCategoryCombos(menuCategory);
@@ -78,20 +79,20 @@ namespace Website.Pages
             {
                 
 
-                Entrees = Menu.FilterByMinPriceEntree(Entrees, minimumPrice);
-                Drinks = Menu.FilterByMinPriceDrink(Drinks, minimumPrice);
-                Sides = Menu.FilterByMinPriceSide(Sides, minimumPrice);
-                Combos = Menu.FilterByMinPriceCombo(Combos, minimumPrice);
+                Entrees = Entrees.Where(entrees => entrees.Price >= minimumPrice);
+                Drinks = Drinks.Where(drinks => drinks.Price >= minimumPrice);
+                Sides = Sides.Where(sides => sides.Price >= minimumPrice);
+                Combos = Combos.Where(combos => combos.Price >= minimumPrice);
             }
 
             if (maximumPrice != 0 && maximumPrice > 0)
             {
 
 
-                Entrees = Menu.FilterByMaxPriceEntree(Entrees, maximumPrice);
-                Drinks = Menu.FilterByMaxPriceDrink(Drinks, maximumPrice);
-                Sides = Menu.FilterByMaxPriceSide(Sides, maximumPrice);
-                Combos = Menu.FilterByMaxPriceCombo(Combos, maximumPrice);
+                Entrees = Entrees.Where(entrees => entrees.Price <= maximumPrice);
+                Drinks = Drinks.Where(drinks => drinks.Price <= maximumPrice);
+                Sides = Sides.Where(sides => sides.Price <= maximumPrice);
+                Combos = Combos.Where(combos => combos.Price <= maximumPrice);
             }
 
             
