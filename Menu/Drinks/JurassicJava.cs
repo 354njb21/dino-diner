@@ -146,18 +146,7 @@ namespace DinoDiner.Menu
             }
             else
             {
-                if (size == Size.Large)
-                {
-                    return $"Large Jurassic Java";
-                }
-                else if (size == Size.Medium)
-                {
-                    return $"Medium Jurassic Java";
-                }
-                else
-                {
-                    return $"Small Jurassic Java";
-                }
+                return "Jurassic Java";
             }
         }
 

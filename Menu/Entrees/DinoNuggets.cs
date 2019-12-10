@@ -36,8 +36,8 @@ namespace DinoDiner.Menu
             
         get
             {
-                List<string> ingredients = new List<string>() { "Chicken, Breading" };
-
+                List<string> ingredients = new List<string>() { "Chicken" };
+                ingredients.Add("Breading");
                 return ingredients;
             }
         }

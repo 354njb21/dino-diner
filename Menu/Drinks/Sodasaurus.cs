@@ -185,7 +185,7 @@ namespace DinoDiner.Menu
                 }
                 else
                 {
-                    return $"Small Cola Sodasaurus";
+                    return $"Cola Sodasaurus";
                 }
             }
             else if(Flavor == SodasaurusFlavor.Lime)

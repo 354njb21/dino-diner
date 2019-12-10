@@ -104,6 +104,22 @@ namespace DinoDiner.Menu
                 menuItems.Add(sticks);
                 menuItems.Add(tots);
 
+                CretaceousCombo bratCombo = new CretaceousCombo(brat);
+                CretaceousCombo dinoNugs = new CretaceousCombo(nuggets);
+                CretaceousCombo pbjCombo = new CretaceousCombo(pbj);
+                CretaceousCombo wingsCombo = new CretaceousCombo(wings);
+                CretaceousCombo steakBurgerCombo = new CretaceousCombo(steak);
+                CretaceousCombo trexBurgerCombo = new CretaceousCombo(trex);
+                CretaceousCombo wrapCombo = new CretaceousCombo(wrap);
+
+                menuItems.Add(bratCombo);
+                menuItems.Add(dinoNugs);
+                menuItems.Add(pbjCombo);
+                menuItems.Add(wingsCombo);
+                menuItems.Add(steakBurgerCombo);
+                menuItems.Add(trexBurgerCombo);
+                menuItems.Add(wrapCombo);
+
                 return menuItems;
             }
         } 

@@ -158,18 +158,7 @@ namespace DinoDiner.Menu
             }
             else
             {
-                if (size == Size.Large)
-                {
-                    return $"Large Tyrannotea";
-                }
-                else if (size == Size.Medium)
-                {
-                    return $"Medium Tyrannotea";
-                }
-                else
-                {
-                    return $"Small Tyrannotea";
-                }
+                return "Tyrannotea";
             }
         }
 

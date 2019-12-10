@@ -24,6 +24,8 @@ namespace Website.Pages
 
         public IEnumerable<CretaceousCombo> Combos;
 
+        public HashSet<string> PossibleIngredients = new HashSet<string>();
+
         [BindProperty]
         public string search { get; set; }
 
@@ -37,7 +39,9 @@ namespace Website.Pages
         public double maximumPrice { get; set; }
 
         [BindProperty]
-        public HashSet<string> Ingredients { get; set; } = new HashSet<string>();
+        public HashSet<string> SelectedIngredients { get; set; } = new HashSet<string>();
+
+       
 
         public void OnGet()
         {
@@ -45,6 +49,7 @@ namespace Website.Pages
             Sides = Menu.AvailableSides;
             Drinks = Menu.AvailableDrinks;
             Combos = Menu.AvailableCombos;
+            PossibleIngredients = Menu.PossibleIngredients;
         }
 
         public void OnPost()
@@ -53,6 +58,7 @@ namespace Website.Pages
             Sides = Menu.AvailableSides;
             Drinks = Menu.AvailableDrinks;
             Combos = Menu.AvailableCombos;
+            PossibleIngredients = Menu.PossibleIngredients;
 
             if (search != null)
             {
@@ -68,11 +74,27 @@ namespace Website.Pages
                 Drinks = new List<Drink>();
                 Sides = new List<Side>();
                 Combos = new List<CretaceousCombo>();
-
-                Entrees = Menu.AvailableEntrees.OfType(Entree);
-                Drinks = Menu.FilterByMenuCategoryDrink(menuCategory);
-                Sides = Menu.FilterByMenuCategorySide(menuCategory);
-                Combos = Menu.FilterByMenuCategoryCombos(menuCategory);
+                foreach(string category in menuCategory)
+                {
+                    if(category == "Entree")
+                    {
+                        Entrees = Menu.AvailableMenuItems.OfType<Entree>();
+                    }
+                    else if(category == "Drink")
+                    {
+                        Drinks = Menu.AvailableMenuItems.OfType<Drink>();
+                    }
+                    else if(category == "Side")
+                    {
+                        Sides = Menu.AvailableMenuItems.OfType<Side>();
+                    }
+                    else
+                    {
+                        Combos = Menu.AvailableMenuItems.OfType<CretaceousCombo>();
+                    }
+                    
+                }
+                  
             }
 
             if(minimumPrice != 0 && minimumPrice > 0)
@@ -95,7 +117,99 @@ namespace Website.Pages
                 Combos = Combos.Where(combos => combos.Price <= maximumPrice);
             }
 
+            if(SelectedIngredients.Count != 0)
+            {
+                foreach(string item in SelectedIngredients)
+                {
+                    Entrees = Entrees.Where(entrees => !entrees.Ingredients.Contains(item));
+                    Drinks = Drinks.Where(drinks => !drinks.Ingredients.Contains(item));
+                    Sides = Sides.Where(sides => !sides.Ingredients.Contains(item));
+                    Combos = Combos.Where(combos => !combos.Ingredients.Contains(item));
+                }
+                
+            }
+
             
+
+            
+        }
+
+        public double ComboPriceBySize(string size, CretaceousCombo combo)
+        {
+            CretaceousCombo tempCombo = combo;
+
+            if(size == null)
+            {
+                return 0;
+            }
+
+            if(size == "small")
+            {
+                tempCombo.Size = Size.Small;
+                return tempCombo.Price;
+            }
+            else if(size == "medium")
+            {
+                tempCombo.Size = Size.Medium;
+                return tempCombo.Price;
+            }
+            else
+            {
+                tempCombo.Size = Size.Large;
+                return tempCombo.Price;
+            }
+        }
+
+        public double DrinkPriceBySize(string size, Drink drink)
+        {
+            Drink tempDrink = drink;
+
+            if (size == null)
+            {
+                return 0;
+            }
+
+            if (size == "small")
+            {
+                tempDrink.Size = Size.Small;
+                return tempDrink.Price;
+            }
+            else if (size == "medium")
+            {
+                tempDrink.Size = Size.Medium;
+                return tempDrink.Price;
+            }
+            else
+            {
+                tempDrink.Size = Size.Large;
+                return tempDrink.Price;
+            }
+        }
+
+        public double SidePriceBySize(string size, Side side)
+        {
+            Side tempSide = side;
+
+            if (size == null)
+            {
+                return 0;
+            }
+
+            if (size == "small")
+            {
+                tempSide.Size = Size.Small;
+                return tempSide.Price;
+            }
+            else if (size == "medium")
+            {
+                tempSide.Size = Size.Medium;
+                return tempSide.Price;
+            }
+            else
+            {
+                tempSide.Size = Size.Large;
+                return tempSide.Price;
+            }
         }
     }
 }
